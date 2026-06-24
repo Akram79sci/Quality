@@ -94,7 +94,6 @@
             border-color: rgba(15, 118, 110, 0.25);
         }
 
-        /* ترويسة الكرت الداخلي */
         .card-header {
             display: flex;
             align-items: center;
@@ -123,7 +122,6 @@
             font-weight: 700;
         }
 
-        /* القوائم الفرعية */
         .sub-list {
             list-style: none;
         }
@@ -160,6 +158,75 @@
             color: var(--secondary-color);
         }
 
+        /* ===================================================
+           تصميم قسم الوثائق والدلائل الجديد
+           =================================================== */
+        .evidence-section {
+            background: linear-gradient(135deg, var(--primary-color), #172a6b);
+            border-radius: 14px;
+            padding: 2.5rem;
+            margin-top: 3.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #ffffff;
+            box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.3);
+        }
+
+        .evidence-info {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .evidence-icon {
+            font-size: 3rem;
+            color: #fbbf24; /* لون ذهبي للأيقونة */
+            background: rgba(255, 255, 255, 0.1);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .evidence-text h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.3rem;
+        }
+
+        .evidence-text p {
+            font-size: 1rem;
+            color: #cbd5e1;
+            margin: 0;
+            max-width: 500px;
+            line-height: 1.5;
+        }
+
+        .evidence-btn {
+            background-color: #fbbf24;
+            color: #0f172a;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            white-space: nowrap;
+        }
+
+        .evidence-btn:hover {
+            background-color: #f59e0b;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+        }
+
         footer {
             text-align: center;
             margin-top: 5rem;
@@ -176,56 +243,35 @@
             header { padding: 1.5rem; margin-bottom: 2.5rem; }
             header h1 { font-size: 1.3rem; }
             header p { font-size: 1rem; }
+            
+            /* تجاوب قسم الوثائق مع الجوال */
+            .evidence-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem 1.5rem;
+                gap: 2rem;
+            }
+            .evidence-info {
+                flex-direction: column;
+            }
+            .evidence-text p {
+                max-width: 100%;
+            }
         }
 
-        /* ===================================================
-           تنسيقات وقواعد الطباعة الصارمة (منع بتر الصناديق)
-           =================================================== */
+        /* تنسيقات الطباعة */
         @media print {
-            body {
-                background-color: #ffffff;
-                padding: 0;
-                margin: 0;
-            }
-
-            .container {
-                max-width: 100%;
-                width: 100%;
-            }
-
-            /* إلغاء نظام الشبكة لتمكين التحكم بالفواصل */
-            .steps-grid {
-                display: block !important;
-            }
-
-            header {
-                box-shadow: none !important;
-                border: 1px solid #94a3b8 !important;
-                border-right: 6px solid #0f766e !important;
-                page-break-after: avoid;
-                break-after: avoid;
-            }
-
-            /* الالتزام بعدم انقسام أي كرت بين ورقتين */
-            .step-card {
-                display: block !important;
-                box-shadow: none !important;
-                border: 1px solid #cbd5e1 !important;
-                margin-bottom: 2rem !important;
-                
-                page-break-inside: avoid !important;
-                break-inside: avoid !important;
-            }
-
-            /* إجبار النظام على طباعة الألوان والخلفيات بدقة */
-            * {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
-
-            footer {
-                page-break-before: avoid;
-            }
+            body { background-color: #ffffff; padding: 0; margin: 0; }
+            .container { max-width: 100%; width: 100%; }
+            .steps-grid { display: block !important; }
+            header { box-shadow: none !important; border: 1px solid #94a3b8 !important; border-right: 6px solid #0f766e !important; page-break-after: avoid; break-after: avoid; }
+            .step-card { display: block !important; box-shadow: none !important; border: 1px solid #cbd5e1 !important; margin-bottom: 2rem !important; page-break-inside: avoid !important; break-inside: avoid !important; }
+            .evidence-section { background: transparent !important; border: 2px solid #1e3a8a !important; color: #000 !important; box-shadow: none !important; }
+            .evidence-text h3 { color: #1e3a8a !important; }
+            .evidence-text p { color: #475569 !important; }
+            .evidence-btn { display: none !important; /* إخفاء الزر عند الطباعة الورقية */ }
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            footer { page-break-before: avoid; }
         }
     </style>
 </head>
@@ -233,15 +279,12 @@
 
     <div class="container">
         
-        <!-- الهيدر الرئيسي المدمج بنص المؤشر -->
         <header>
             <h1>المؤشر الثاني: للمؤسّسة آلية لتنسيب الطلاب المقبولين في التخصّصات المختلفة، ومناسبة لقدرتها الاستيعابية، وملتزمة بها.</h1>
             <p>تعتمد كلية العلوم بجامعة طرابلس آلية محددة لتنسيب الطلاب المقبولين في التخصصات العلمية المختلفة، بما يحقق التوازن بين رغبات الطلاب والقدرة الاستيعابية للكلية.</p>
         </header>
 
-        <!-- شبكة المحتوى التوضيحي للآلية -->
         <main class="steps-grid">
-
             <!-- البند الأول -->
             <div class="step-card">
                 <div class="card-header">
@@ -249,18 +292,9 @@
                     <h4 class="card-title">نظام المفاضلة المعتمد</h4>
                 </div>
                 <ul class="sub-list">
-                    <li>
-                        <i class="fa-solid fa-graduation-cap"></i>
-                        <span class="highlight">المعدل التراكمي:</span> الاعتماد على معدل الطالب في المرحلة التمهيدية، مع منح الأولوية للطلاب ذوي المعدلات الأعلى.
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-align-right"></i>
-                        <span class="highlight">رغبات الطلاب:</span> مراجعة الخيارات المعبأة في نموذج التنسيب الرسمي وفرزها (مرتبة تنازلياً حسب الأولوية).
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-circle-exclamation"></i>
-                        <span class="highlight">شروط خاصة:</span> تطبيق المعايير الخاصة ببعض الأقسام الحيوية مثل اجتياز مقررات محددة بدرجات معينة.
-                    </li>
+                    <li><i class="fa-solid fa-graduation-cap"></i><span class="highlight">المعدل التراكمي:</span> الاعتماد على معدل الطالب في المرحلة التمهيدية، مع منح الأولوية للطلاب ذوي المعدلات الأعلى.</li>
+                    <li><i class="fa-solid fa-align-right"></i><span class="highlight">رغبات الطلاب:</span> مراجعة الخيارات المعبأة في نموذج التنسيب الرسمي وفرزها (مرتبة تنازلياً حسب الأولوية).</li>
+                    <li><i class="fa-solid fa-circle-exclamation"></i><span class="highlight">شروط خاصة:</span> تطبيق المعايير الخاصة ببعض الأقسام الحيوية مثل اجتياز مقررات محددة بدرجات معينة.</li>
                 </ul>
             </div>
 
@@ -271,18 +305,9 @@
                     <h4 class="card-title">تحديد القدرة الاستيعابية سنويّاً</h4>
                 </div>
                 <ul class="sub-list">
-                    <li>
-                        <i class="fa-solid fa-chalkboard-user"></i>
-                        حصر السعة الإجمالية بناءً على <span class="highlight">عدد أعضاء هيئة التدريس</span> المتاحين لتغطية النصاب الأكاديمي.
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-door-open"></i>
-                        <span class="highlight">سعة القاعات الدراسية</span> الاستيعابية، والمعامل، والمختبرات العلمية بالكلية.
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-flask"></i>
-                        تقييم <span class="highlight">الإمكانيات والمواد والأجهزة</span> التكنولوجية والعملية المتوفرة لضمان جودة التدريس التطبيقي.
-                    </li>
+                    <li><i class="fa-solid fa-chalkboard-user"></i>حصر السعة الإجمالية بناءً على <span class="highlight">عدد أعضاء هيئة التدريس</span> المتاحين لتغطية النصاب الأكاديمي.</li>
+                    <li><i class="fa-solid fa-door-open"></i><span class="highlight">سعة القاعات الدراسية</span> الاستيعابية، والمعامل، والمختبرات العلمية بالكلية.</li>
+                    <li><i class="fa-solid fa-flask"></i>تقييم <span class="highlight">الإمكانيات والمواد والأجهزة</span> التكنولوجية والعملية المتوفرة لضمان جودة التدريس التطبيقي.</li>
                 </ul>
             </div>
 
@@ -293,18 +318,9 @@
                     <h4 class="card-title">آلية عمل لجنة الفرز والتوزيع</h4>
                 </div>
                 <ul class="sub-list">
-                    <li>
-                        <i class="fa-solid fa-users-viewfinder"></i>
-                        بدء الإجراءات بـ <span class="highlight">حصر الطلاب الناجحين</span> وتجميع بيانات معدلاتهم ورغباتهم .
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-sort-amount-down"></i>
-                        <span class="highlight">توزيع الطلاب</span> على الأقسام العلمية بالتسلسل التنازلي من الأعلى معدلاً إلى الأدنى حتى اكتمال السعة.
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-shuffle"></i>
-                        <span class="highlight">التحويل التلقائي</span> المباشر للطالب إلى رغبته التالية المدرجة في حال عدم توفر مقاعد شاغرة في الرغبة الأولى.
-                    </li>
+                    <li><i class="fa-solid fa-users-viewfinder"></i>بدء الإجراءات بـ <span class="highlight">حصر الطلاب الناجحين</span> وتجميع بيانات معدلاتهم ورغباتهم .</li>
+                    <li><i class="fa-solid fa-sort-amount-down"></i><span class="highlight">توزيع الطلاب</span> على الأقسام العلمية بالتسلسل التنازلي من الأعلى معدلاً إلى الأدنى حتى اكتمال السعة.</li>
+                    <li><i class="fa-solid fa-shuffle"></i><span class="highlight">التحويل التلقائي</span> المباشر للطالب إلى رغبته التالية المدرجة في حال عدم توفر مقاعد شاغرة في الرغبة الأولى.</li>
                 </ul>
             </div>
 
@@ -315,28 +331,39 @@
                     <h4 class="card-title">معايير الشفافية والالتزام بالضوابط</h4>
                 </div>
                 <ul class="sub-list">
-                    <li>
-                        <i class="fa-solid fa-gavel"></i>
-                        الالتزام الصارم والدقيق بـ <span class="highlight">القدرة الاستيعابية</span> المقرة والمعتمدة رسمياً من قِبل الاقسام العلمية.
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-ban"></i>
-                        <span class="highlight">منع التكدس الطلابي</span> داخل المرافق الأكاديمية لضمان سلامة البيئة التعليمية والتدريب العملي.
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-chart-pie"></i>
-                        مراعاة النسب المعيارية لـ <span class="highlight">الاعتماد الأكاديمي</span> (النسبة القياسية لعدد الطلاب إلى عضو هيئة التدريس).
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-bullhorn"></i>
-                        <span class="highlight">إعلان النتائج بشكل علني</span> وشفاف، مع فتح نافذة زمنية رسمية لاستقبال الطعون والتصحيح عند الحاجة.
-                    </li>
+                    <li><i class="fa-solid fa-gavel"></i>الالتزام الصارم والدقيق بـ <span class="highlight">القدرة الاستيعابية</span> المقرة والمعتمدة رسمياً من قِبل الاقسام العلمية.</li>
+                    <li><i class="fa-solid fa-ban"></i><span class="highlight">منع التكدس الطلابي</span> داخل المرافق الأكاديمية لضمان سلامة البيئة التعليمية والتدريب العملي.</li>
+                    <li><i class="fa-solid fa-chart-pie"></i>مراعاة النسب المعيارية لـ <span class="highlight">الاعتماد الأكاديمي</span> (النسبة القياسية لعدد الطلاب إلى عضو هيئة التدريس).</li>
+                    <li><i class="fa-solid fa-bullhorn"></i><span class="highlight">إعلان النتائج بشكل علني</span> وشفاف، مع فتح نافذة زمنية رسمية لاستقبال الطعون والتصحيح عند الحاجة.</li>
                 </ul>
             </div>
-
         </main>
 
-       
+        <!-- ============================================================
+             القسم الجديد: زر عرض الوثائق (مربوط بمجلد Doc)
+             ============================================================ -->
+        <section class="evidence-section">
+            <div class="evidence-info">
+                <div class="evidence-icon">
+                    <i class="fa-solid fa-file-shield"></i>
+                </div>
+                <div class="evidence-text">
+                    <h3>وثائق ودلائل المؤشر الثاني</h3>
+                    <p>استعرض الوثائق الرسمية، والقرارات، والنماذج المعتمدة التي تثبت تطبيق آلية تنسيب الطلاب والالتزام بالقدرة الاستيعابية.</p>
+                </div>
+            </div>
+            
+            <!-- الرابط المباشر للملف: يتم استدعاؤه من مجلد Doc -->
+            <!-- ملاحظة: إذا كان الملف بصيغة مختلفة مثل الصور ضع 2.jpg أو 2.png بدلاً من pdf -->
+            <a href="Doc/2.pdf" target="_blank" class="evidence-btn">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> استعراض الملفات
+            </a>
+        </section>
+
+        <footer>
+            <p>نظام التوثيق الرقمي الموحد - مكتب ضمان الجودة بكلية العلوم - جامعة طرابلس</p>
+        </footer>
+
     </div>
 
 </body>
