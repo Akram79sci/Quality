@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المؤشر الحادي عشر: آلية اختيار وتسمية المرشد الأكاديمي</title>
+    <!-- استيراد خط Tajawal من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- استيراد مكتبة Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #1e3a8a; /* أزرق ملكي رسمي */
+            --advisor-gold: #b45309; /* لون الإرشاد والتوجيه - ذهبي داكن/خريفي */
+            --mechanism-teal: #0f766e; /* أخضر جودة ونظم */
+            --tasks-indigo: #4338ca; /* نيلي للمهام والواجبات */
+            --bg-light: #f8fafc; 
+            --card-white: #ffffff;
+            --text-dark: #0f172a;
+            --text-slate: #475569;
+            --accent-gold: rgba(180, 83, 9, 0.05);
+            --accent-teal: rgba(15, 118, 110, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* تصميم الهيدر الرئيسي للمؤشر */
+        header {
+            background-color: var(--card-white);
+            border-right: 6px solid var(--primary-color);
+            border-left: 1px solid #e2e8f0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-align: justify;
+            line-height: 1.5;
+        }
+
+        /* كرت مقدمة التزام المؤسسة بالدعم والتوجيه */
+        .intro-card {
+            background-color: var(--card-white);
+            border-top: 4px solid var(--primary-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+            border-right: 1px solid #e2e8f0;
+            border-left: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .intro-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: rgba(30, 58, 138, 0.06);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .intro-text {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        /* التخطيط الهيكلي للمجموعات */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-card {
+            background-color: var(--card-white);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 1rem;
+        }
+
+        /* تنسيقات مخصصة لكل قسم */
+        .gold-theme { border-top: 4px solid var(--advisor-gold); }
+        .gold-theme .section-title { color: var(--advisor-gold); }
+        .teal-theme { border-top: 4px solid var(--mechanism-teal); }
+        .teal-theme .section-title { color: var(--mechanism-teal); }
+        .indigo-theme { border-top: 4px solid var(--tasks-indigo); }
+        .indigo-theme .section-title { color: var(--tasks-indigo); }
+
+        /* القوائم المنسقة بـ Font Awesome */
+        .styled-list {
+            list-style: none;
+        }
+
+        .styled-list li {
+            position: relative;
+            padding-right: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: var(--text-dark);
+            text-align: justify;
+            font-weight: 500;
+        }
+
+        .styled-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .styled-list li .li-number {
+            position: absolute;
+            right: 0;
+            top: 3px;
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        /* ألوان أرقام القوائم حسب هوية القسم */
+        .gold-theme .styled-list li .li-number { background-color: var(--accent-gold); color: var(--advisor-gold); }
+        .teal-theme .styled-list li .li-number { background-color: var(--accent-teal); color: var(--mechanism-teal); }
+        .indigo-theme .styled-list li .li-number { background-color: rgba(67, 56, 202, 0.06); color: var(--tasks-indigo); }
+
+        /* قسم المهام (يمتد بكامل العرض في التخطيط) */
+        .full-width {
+            grid-column: span 2;
+        }
+
+        .tasks-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--text-slate);
+            font-size: 0.85rem;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1.5rem;
+        }
+
+        /* ملاءمة الشاشات الصغيرة والمتوسطة */
+        @media (max-width: 992px) {
+            .grid-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+            .full-width { grid-column: span 1; }
+            .tasks-grid { grid-template-columns: 1fr; gap: 1rem; }
+            body { padding: 1.5rem 1rem; }
+            header { padding: 1.5rem; }
+            header h1 { font-size: 1.25rem; }
+        }
+
+        /* ===================================================
+           تنسيقات الطباعة الذكية (تضمن الحفظ المثالي بصفحتين كحد أقصى)
+           =================================================== */
+        @media print {
+            @page {
+                size: A4;
+                margin: 15mm 15mm;
+            }
+
+            body {
+                background-color: #ffffff;
+                padding: 0 !important;
+                margin: 0 !important;
+                font-size: 10.5pt;
+                line-height: 1.6 !important;
+            }
+
+            .container { max-width: 100%; width: 100%; }
+
+            header {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                border-right: 6px solid var(--primary-color) !important;
+                padding: 1.2rem !important;
+                margin-bottom: 1.2rem !important;
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            header h1 { font-size: 1.35rem !important; }
+
+            .intro-card {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                border-top: 4px solid var(--primary-color) !important;
+                padding: 1rem !important;
+                margin-bottom: 1.5rem !important;
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            .intro-icon { background: none !important; color: var(--primary-color) !important; }
+
+            /* الحفاظ على التوازي لتقليص الهدر الطولي للمستند */
+            .grid-layout {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 1.2rem !important;
+                margin-bottom: 1.2rem !important;
+            }
+
+            .section-card {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                padding: 1.2rem !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .section-title {
+                font-size: 1.1rem !important;
+                margin-bottom: 1rem !important;
+                padding-bottom: 0.5rem !important;
+            }
+
+            .styled-list li { margin-bottom: 0.6rem !important; font-size: 0.95rem !important; }
+            .styled-list li .li-number { background: none !important; border: 1px solid #94a3b8 !important; }
+
+            /* جعل كرت المهام يتكيف بشكل مثالي في الصفحة التالية أو المساحة المتبقية */
+            .full-width { grid-column: span 2 !important; margin-top: 0.5rem; }
+            .tasks-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 1rem !important; }
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            footer { margin-top: 1.5rem !important; padding-top: 0.8rem !important; page-break-before: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- الهيدر الرئيسي المعتمد على نص المؤشر بالكامل -->
+        <header>
+            <h1>المؤشر الحادي عشر : للمؤسّسة آلية لاختيار، وتسمية المرشد الأكاديمي، أو الرّائد العلمي.</h1>
+        </header>
+
+        <!-- كرت تمهيد الآلية والالتزام باللوائح المنظمة -->
+        <div class="intro-card">
+            <div class="intro-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div class="intro-text">
+                تعتمد المؤسسة نظاماً واضحاً لتعيين المرشد الأكاديمي بهدف دعم الطلاب وتوجيههم خلال مسيرتهم الدراسية وفق اللوائح المنظمة للتعليم العالي.
+            </div>
+        </div>
+
+        <!-- شبكة العرض الأساسية للمؤشر -->
+        <main class="grid-layout">
+            
+            <!-- أولاً: معايير اختيار المرشد الأكاديمي -->
+            <section class="section-card gold-theme">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-user-check"></i>
+                    أولاً: معايير اختيار المرشد الأكاديمي
+                </h2>
+                <ul class="styled-list">
+                    <li>
+                        <span class="li-number">1</span>
+                        يتم اختيار المرشد الأكاديمي من بين أعضاء هيئة التدريس القارين داخل القسم العلمي فقط.
+                    </li>
+                    <li>
+                        <span class="li-number">2</span>
+                        يُستبعد عادةً المعيدون والمتعاونون الخارجيون لضمان الاستمرارية وجودة المتابعة.
+                    </li>
+                    <li>
+                        <span class="li-number">3</span>
+                        يُشترط أن يكون المرشد على دراية باللوائح الأكاديمية والخطة الدراسية ومتطلبات التخرج لضمان توجيه صحيح للطلاب.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ثانياً: آلية التسمية والتكليف -->
+            <section class="section-card teal-theme">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-clipboard-list"></i>
+                    ثانياً: آلية التسمية والتكليف
+                </h2>
+                <ul class="styled-list">
+                    <li>
+                        <span class="li-number">1</span>
+                        يتم حصر الطلاب في بداية كل فصل دراسي من قبل منسق الدراسة والامتحانات بالقسم.
+                    </li>
+                    <li>
+                        <span class="li-number">2</span>
+                        يتم توزيع الطلاب على المرشدين الأكاديميين بشكل متوازن وفق عدد الطلاب لكل عضو هيئة تدريس.
+                    </li>
+                    <li>
+                        <span class="li-number">3</span>
+                        يصدر رئيس القسم العلمي قراراً رسمياً باعتماد قوائم المرشدين وتوزيع الطلاب عليهم.
+                    </li>
+                    <li>
+                        <span class="li-number">4</span>
+                        تُعلن القوائم رسمياً للطلاب عبر لوحات الإعلانات أو المنصات الإلكترونية ليعرف كل طالب مرشده.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ثالثاً: مهام المرشد الأكاديمي -->
+            <section class="section-card indigo-theme full-width">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-list-check"></i>
+                    ثالثاً: مهام المرشد الأكاديمي
+                </h2>
+                <div class="tasks-grid">
+                    <ul class="styled-list">
+                        <li>
+                            <span class="li-number">1</span>
+                            متابعة وتنظيم عملية تسجيل المقررات وتوقيع نماذج تنزيل المواد والتأكد من عدم وجود تعارض.
+                        </li>
+                        <li>
+                            <span class="li-number">2</span>
+                            متابعة الأداء الأكاديمي للطلاب، خصوصاً المتعثرين وذوي الإنذارات، وتقديم الدعم اللازم لهم.
+                        </li>
+                    </ul>
+                    <ul class="styled-list">
+                        <li>
+                            <span class="li-number">3</span>
+                            المساعدة في تحسين المعدل التراكمي من خلال توجيه الطالب لاختيار مقررات مناسبة.
+                        </li>
+                        <li>
+                            <span class="li-number">4</span>
+                            تخصيص ساعات مكتبية معلنة لاستقبال الطلاب والإجابة عن استفساراتهم الأكاديمية.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+
+        
+    </div>
+
+</body>
+</html>

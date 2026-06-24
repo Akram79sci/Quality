@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المؤشر الثاني عشر: آلية تواصل الطلاب مع هيئة التدريس والكوادر المساندة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #1e3a8a; /* أزرق ملكي رسمي للمؤسسة */
+            --hours-amber: #d97706; /* لون الساعات المكتبية */
+            --advisor-blue: #2563eb; /* لون الإرشاد الأكاديمي */
+            --digital-purple: #7c3aed; /* لون منصات التواصل الإلكتروني */
+            --lab-teal: #0d9488; /* لون الكوادر المساندة والمعامل */
+            --admin-emerald: #059669; /* لون القنوات الإدارية */
+            --bg-light: #f8fafc; 
+            --card-white: #ffffff;
+            --text-dark: #0f172a;
+            --text-slate: #475569;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* تصميم الهيدر الرئيسي للمؤشر */
+        header {
+            background-color: var(--card-white);
+            border-right: 6px solid var(--primary-color);
+            border-left: 1px solid #e2e8f0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-align: justify;
+            line-height: 1.5;
+        }
+
+        /* كرت مقدمة التزام المؤسسة بالقنوات والنظم المتكاملة */
+        .intro-card {
+            background-color: var(--card-white);
+            border-top: 4px solid var(--primary-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+            border-right: 1px solid #e2e8f0;
+            border-left: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .intro-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: rgba(30, 58, 138, 0.06);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .intro-text {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        /* التخطيط الشبكي لتوزيع آليات القنوات المباشرة والرسمية */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-card {
+            background-color: var(--card-white);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 1rem;
+        }
+
+        /* تنسيق الهوية اللونية الفرعية لكل قسم */
+        .amber-theme { border-top: 4px solid var(--hours-amber); }
+        .amber-theme .section-title { color: var(--hours-amber); }
+        
+        .blue-theme { border-top: 4px solid var(--advisor-blue); }
+        .blue-theme .section-title { color: var(--advisor-blue); }
+        
+        .purple-theme { border-top: 4px solid var(--digital-purple); }
+        .purple-theme .section-title { color: var(--digital-purple); }
+        
+        .teal-theme { border-top: 4px solid var(--lab-teal); }
+        .teal-theme .section-title { color: var(--lab-teal); }
+        
+        .emerald-theme { border-top: 4px solid var(--admin-emerald); }
+        .emerald-theme .section-title { color: var(--admin-emerald); }
+
+        /* توسيع قسم المنصات الإلكترونية ليأخذ العرض الكامل */
+        .full-width {
+            grid-column: span 2;
+        }
+
+        /* القوائم المرقمة المنسقة */
+        .styled-list {
+            list-style: none;
+        }
+
+        .styled-list li {
+            position: relative;
+            padding-right: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: var(--text-dark);
+            text-align: justify;
+            font-weight: 500;
+        }
+
+        .styled-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .styled-list li .li-number {
+            position: absolute;
+            right: 0;
+            top: 3px;
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        /* تعيين خلفيات الأرقام حسب هوية القسم */
+        .amber-theme .styled-list li .li-number { background-color: rgba(217, 119, 6, 0.06); color: var(--hours-amber); }
+        .blue-theme .styled-list li .li-number { background-color: rgba(37, 99, 235, 0.06); color: var(--advisor-blue); }
+        .teal-theme .styled-list li .li-number { background-color: rgba(13, 148, 136, 0.06); color: var(--lab-teal); }
+        .emerald-theme .styled-list li .li-number { background-color: rgba(5, 150, 105, 0.06); color: var(--admin-emerald); }
+
+        /* تنسيق خاص بالمنصات الرقمية (تعدد القوائم الفرعية غير المرقمة) */
+        .intro-list-text {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .bullet-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-right: 1.8rem;
+            font-size: 0.98rem;
+            color: var(--text-dark);
+            text-align: justify;
+            font-weight: 500;
+        }
+
+        .bullet-list li::before {
+            content: "\f10c"; /* أيقونة دائرة مفرغة أنيقة */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 2px;
+            color: var(--digital-purple);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--text-slate);
+            font-size: 0.85rem;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1.5rem;
+        }
+
+        /* الاستجابة التامة مع الشاشات الصغيرة والمتوسطة */
+        @media (max-width: 992px) {
+            .grid-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+            .full-width { grid-column: span 1; }
+            .bullet-list { grid-template-columns: 1fr; }
+            body { padding: 1.5rem 1rem; }
+            header { padding: 1.5rem; }
+            header h1 { font-size: 1.25rem; }
+        }
+
+        /* ===================================================
+           تنسيقات الطباعة الصارمة (توزيع العناصر بدقة متناهية)
+           =================================================== */
+        @media print {
+            @page {
+                size: A4;
+                margin: 15mm 15mm;
+            }
+
+            body {
+                background-color: #ffffff;
+                padding: 0 !important;
+                margin: 0 !important;
+                font-size: 10.5pt;
+                line-height: 1.6 !important;
+            }
+
+            .container { max-width: 100%; width: 100%; }
+
+            header {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                border-right: 6px solid var(--primary-color) !important;
+                padding: 1.2rem !important;
+                margin-bottom: 1.2rem !important;
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            header h1 { font-size: 1.35rem !important; }
+
+            .intro-card {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                border-top: 4px solid var(--primary-color) !important;
+                padding: 1rem !important;
+                margin-bottom: 1.5rem !important;
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            .intro-icon { background: none !important; color: var(--primary-color) !important; }
+
+            .grid-layout {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 1.2rem !important;
+                margin-bottom: 1.2rem !important;
+            }
+
+            .section-card {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                padding: 1.2rem !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .section-title {
+                font-size: 1.1rem !important;
+                margin-bottom: 1rem !important;
+                padding-bottom: 0.5rem !important;
+            }
+
+            .styled-list li { margin-bottom: 0.6rem !important; font-size: 0.95rem !important; }
+            .styled-list li .li-number { background: none !important; border: 1px solid #94a3b8 !important; }
+
+            .full-width { grid-column: span 2 !important; }
+            .bullet-list { display: block !important; }
+            .bullet-list li { margin-bottom: 0.6rem !important; font-size: 0.95rem !important; }
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            footer { margin-top: 1.5rem !important; padding-top: 0.8rem !important; page-break-before: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <h1>المؤشر الثاني عشر : للمؤسسة آلية تُمكّن الطلاب من التواصل مع أعضاء هيئة التدريس والكوادر المساندة</h1>
+        </header>
+
+        <div class="intro-card">
+            <div class="intro-icon">
+                <i class="fa-solid fa-comments"></i>
+            </div>
+            <div class="intro-text">
+                تعتمد المؤسسة نظاماً متكاملاً يتيح للطلاب التواصل مع أعضاء هيئة التدريس والكوادر المساندة عبر قنوات مباشرة ورسمية وإلكترونية.
+            </div>
+        </div>
+
+        <main class="grid-layout">
+            
+            <section class="section-card amber-theme">
+                <h2 class="section-title">
+                    <i class="fa-regular fa-clock"></i>
+                    أولاً: الساعات المكتبية (Office Hours)
+                </h2>
+                <ul class="styled-list">
+                    <li>
+                        <span class="li-number">1</span>
+                        يلتزم كل عضو هيئة تدريس بتحديد ساعات مكتبية أسبوعية معلنة ضمن جدول القسم.
+                    </li>
+                    <li>
+                        <span class="li-number">2</span>
+                        تُخصص هذه الساعات لاستقبال الطلاب والإجابة عن استفساراتهم الأكاديمية.
+                    </li>
+                    <li>
+                        <span class="li-number">3</span>
+                        يتم خلالها مناقشة الصعوبات المتعلقة بالمقررات الدراسية وتقديم الدعم العلمي المباشر.
+                    </li>
+                </ul>
+            </section>
+
+            <section class="section-card blue-theme">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-user-tie"></i>
+                    ثانياً: المرشد الأكاديمي
+                </h2>
+                <ul class="styled-list">
+                    <li>
+                        <span class="li-number">1</span>
+                        يُخصص لكل طالب مرشد أكاديمي من أعضاء هيئة التدريس عند التحاقه بالقسم.
+                    </li>
+                    <li>
+                        <span class="li-number">2</span>
+                        يُعد المرشد قناة تواصل رئيسية بين الطالب وإدارة القسم.
+                    </li>
+                    <li>
+                        <span class="li-number">3</span>
+                        تشمل مهامه دعم الطالب في تسجيل المواد، وحل المشكلات الأكاديمية والإدارية، ومتابعة خطته الدراسية حتى التخرج.
+                    </li>
+                </ul>
+            </section>
+
+            <section class="section-card purple-theme full-width">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-laptop-code"></i>
+                    ثالثاً: منصات التواصل الإلكتروني
+                </h2>
+                <p class="intro-list-text">توفر المؤسسة وسائل رقمية لتسهيل التواصل السريع والفعال، مثل:</p>
+                <ul class="bullet-list">
+                    <li>البريد الإلكتروني الجامعي للتواصل الرسمي.</li>
+                    <li>أنظمة إدارة التعلم (مثل Moodle أو Google Classroom) لتبادل المحاضرات والواجبات والنقاشات.</li>
+                    <li>الصفحات والمجموعات الرسمية على وسائل التواصل لنشر الإعلانات والجداول والمستجدات.</li>
+                </ul>
+            </section>
+
+            <section class="section-card teal-theme">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-flask-vial"></i>
+                    رابعاً: الكوادر المساندة داخل المعامل
+                </h2>
+                <ul class="styled-list">
+                    <li>
+                        <span class="li-number">1</span>
+                        يتواجد المعيدون وفنيو المختبرات داخل المعامل لدعم الطلاب أثناء الجوانب العملية.
+                    </li>
+                    <li>
+                        <span class="li-number">2</span>
+                        يتم التواصل معهم مباشرة لشرح التجارب ومتابعة الأداء العملي وتقييم التقارير.
+                    </li>
+                </ul>
+            </section>
+
+            <section class="section-card emerald-theme">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-building-columns"></i>
+                    خامساً: القنوات الإدارية الرسمية
+                </h2>
+                <ul class="styled-list">
+                    <li>
+                        <span class="li-number">1</span>
+                        يتم التواصل مع مسجل الكلية او رئيس القسم بخصوص الإجراءات الإدارية المختلفة.
+                    </li>
+                    <li>
+                        <span class="li-number">2</span>
+                        تُحال المعاملات الأكثر تعقيداً إلى مكتب الدراسة والامتحانات او وكيل الكلية لضمان استكمالها وفق اللوائح المعتمدة.
+                    </li>
+                </ul>
+            </section>
+
+        </main>
+
+        
+    </div>
+
+</body>
+</html>

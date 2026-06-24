@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المؤشر الرابع عشر: آلية للاستفادة من معالجة الطعون وشكاوى الطلاب</title>
+    <!-- استيراد خط Tajawal من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- استيراد مكتبة Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #1e3a8a; /* أزرق ملكي رسمي للمؤسسة */
+            --sky-blue: #0369a1; /* لون التحليل الدوري */
+            --teal-quality: #0f766e; /* لون تحسين الأداء الدراسي */
+            --amber-feedback: #b45309; /* لون التغذية الراجعة واللوائح */
+            --indigo-staff: #4338ca; /* لون تطوير الكوادر */
+            --emerald-satisfining: #15803d; /* لون تعزيز رضا الطلاب */
+            --bg-light: #f8fafc; 
+            --card-white: #ffffff;
+            --text-dark: #0f172a;
+            --text-slate: #475569;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* تصميم الهيدر الرئيسي للمؤشر */
+        header {
+            background-color: var(--card-white);
+            border-right: 6px solid var(--primary-color);
+            border-left: 1px solid #e2e8f0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-align: justify;
+            line-height: 1.5;
+        }
+
+        /* كرت تمهيد استثمار نتائج الطعون والشكاوى */
+        .intro-card {
+            background-color: var(--card-white);
+            border-top: 4px solid var(--primary-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+            border-right: 1px solid #e2e8f0;
+            border-left: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .intro-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: rgba(30, 58, 138, 0.06);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .intro-text {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        /* التخطيط الشبكي المتوازن للأقسام */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-card {
+            background-color: var(--card-white);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 1rem;
+        }
+
+        /* تخصيص الثيمات اللونية للأقسام المعتمدة */
+        .sky-theme { border-top: 4px solid var(--sky-blue); }
+        .sky-theme .section-title { color: var(--sky-blue); }
+        
+        .teal-theme { border-top: 4px solid var(--teal-quality); }
+        .teal-theme .section-title { color: var(--teal-quality); }
+        
+        .amber-theme { border-top: 4px solid var(--amber-feedback); }
+        .amber-theme .section-title { color: var(--amber-feedback); }
+        
+        .indigo-theme { border-top: 4px solid var(--indigo-staff); }
+        .indigo-theme .section-title { color: var(--indigo-staff); }
+        
+        .emerald-theme { border-top: 4px solid var(--emerald-satisfining); }
+        .emerald-theme .section-title { color: var(--emerald-satisfining); }
+
+        /* تمديد الكروت ذات المحتوى المتشعب لتشغل العرض الكامل */
+        .full-width {
+            grid-column: span 2;
+        }
+
+        /* القوائم المرقمة المنسقة */
+        .styled-list {
+            list-style: none;
+        }
+
+        .styled-list li {
+            position: relative;
+            padding-right: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: var(--text-dark);
+            text-align: justify;
+            font-weight: 500;
+        }
+
+        .styled-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .styled-list li .li-number {
+            position: absolute;
+            right: 0;
+            top: 3px;
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        /* تعيين خلفيات الترقيم الذكية تبعاً للقسم */
+        .sky-theme .styled-list li .li-number { background-color: rgba(3, 105, 161, 0.06); color: var(--sky-blue); }
+        .teal-theme .styled-list li .li-number { background-color: rgba(15, 118, 110, 0.06); color: var(--teal-quality); }
+        .amber-theme .styled-list li .li-number { background-color: rgba(180, 83, 9, 0.06); color: var(--amber-feedback); }
+        .emerald-theme .styled-list li .li-number { background-color: rgba(21, 128, 61, 0.06); color: var(--emerald-satisfining); }
+
+        /* القائمة الفرعية التابعة للنقطة الأولى بالقسم الثاني */
+        .sub-bullet-list {
+            list-style: none;
+            margin-top: 0.8rem;
+            margin-bottom: 1rem;
+            padding-right: 1.2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .sub-bullet-list li {
+            position: relative;
+            padding-right: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--text-slate);
+            font-weight: 700;
+        }
+
+        .sub-bullet-list li::before {
+            content: "\f058"; /* أيقونة التشيك الأنيقة */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            color: var(--teal-quality);
+            font-size: 1rem;
+        }
+
+        /* تنسيق الفقرات المستقلة الخالية من الترقيم (القسم الرابع) */
+        .standalone-text {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            font-weight: 500;
+            text-align: justify;
+            position: relative;
+            padding-right: 1.5rem;
+        }
+
+        .standalone-text::before {
+            content: "\f013"; /* ترس التطوير والجودة */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 4px;
+            color: var(--indigo-staff);
+            font-size: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--text-slate);
+            font-size: 0.85rem;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1.5rem;
+        }
+
+        /* مواءمة التصفح والشاشات الصغيرة */
+        @media (max-width: 992px) {
+            .grid-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+            .full-width { grid-column: span 1; }
+            .sub-bullet-list { grid-template-columns: 1fr; }
+            body { padding: 1.5rem 1rem; }
+            header { padding: 1.5rem; }
+            header h1 { font-size: 1.25rem; }
+        }
+
+        /* ===================================================
+           تنسيقات الطباعة الصارمة والذكية (A4 وبحد أقصى صفحتين)
+           =================================================== */
+        @media print {
+            @page {
+                size: A4;
+                margin: 15mm 15mm;
+            }
+
+            body {
+                background-color: #ffffff;
+                padding: 0 !important;
+                margin: 0 !important;
+                font-size: 10.5pt;
+                line-height: 1.6 !important;
+            }
+
+            .container { max-width: 100%; width: 100%; }
+
+            header {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                border-right: 6px solid var(--primary-color) !important;
+                padding: 1.2rem !important;
+                margin-bottom: 1.2rem !important;
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            header h1 { font-size: 1.35rem !important; }
+
+            .intro-card {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                border-top: 4px solid var(--primary-color) !important;
+                padding: 1rem !important;
+                margin-bottom: 1.5rem !important;
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            .intro-icon { background: none !important; color: var(--primary-color) !important; }
+
+            .grid-layout {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 1.2rem !important;
+                margin-bottom: 1.2rem !important;
+            }
+
+            .section-card {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                padding: 1.2rem !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .section-title {
+                font-size: 1.1rem !important;
+                margin-bottom: 1rem !important;
+                padding-bottom: 0.5rem !important;
+            }
+
+            .styled-list li { margin-bottom: 0.6rem !important; font-size: 0.95rem !important; }
+            .styled-list li .li-number { background: none !important; border: 1px solid #94a3b8 !important; }
+
+            .full-width { grid-column: span 2 !important; }
+            .sub-bullet-list { display: grid !important; grid-template-columns: 1fr 1fr 1fr !important; gap: 0.5rem !important; }
+            .sub-bullet-list li { font-size: 0.9rem !important; }
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            footer { margin-top: 1.5rem !important; padding-top: 0.8rem !important; page-break-before: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- الهيدر الرئيسي المعتمد على نص المؤشر بالكامل -->
+        <header>
+            <h1>المؤشر الرابع عشر : للمؤسّسة آلية للاستفادة من معالجة الطعون، وشكاوى الطلاب.</h1>
+        </header>
+
+        <!-- كرت تمهيد استثمار نتائج الطعون والشكاوى في الجودة -->
+        <div class="intro-card">
+            <div class="intro-icon">
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <div class="intro-text">
+                تعتمد المؤسسة نظاماً مؤسسياً لا يقتصر على استقبال الشكاوى والطعون، بل يستثمر نتائجها في تحسين جودة العملية التعليمية والخدمات.
+            </div>
+        </div>
+
+        <!-- شبكة عرض مخرجات وآليات الاستفادة والتحسين المستمر -->
+        <main class="grid-layout">
+            
+            <!-- أولاً: التحليل الدوري للشكاوى والطعون -->
+            <section class="section-card sky-theme">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    أولاً: التحليل الدوري للشكاوى والطعون
+                </h2>
+                <ul class="styled-list">
+                    <li>
+                        <span class="li-number">1</span>
+                        يتم جمع وتصنيف الشكاوى والطعون بشكل دوري حسب نوعها (أكاديمية، إدارية، خدمية).
+                    </li>
+                    <li>
+                        <span class="li-number">2</span>
+                        تُحلل البيانات لاستخراج الأنماط المتكررة والمشكلات الأكثر شيوعاً داخل الكلية.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ثالثاً: التغذية الراجعة وتطوير اللوائح -->
+            <section class="section-card amber-theme">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-code-pull-request"></i>
+                    ثالثاً: التغذية الراجعة وتطوير اللوائح
+                </h2>
+                <ul class="styled-list">
+                    <li>
+                        <span class="li-number">1</span>
+                        تُرفع تقارير دورية إلى مجلس الكلية تتضمن أبرز المشكلات والحلول المقترحة.
+                    </li>
+                    <li>
+                        <span class="li-number">2</span>
+                        يتم استخدام هذه التقارير في تعديل أو تطوير اللوائح والإجراءات الأكاديمية والإدارية عند الحاجة.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ثانياً: تحسين الأداء الأكاديمي والإداري (عرض كامل لتشعب محتواه) -->
+            <section class="section-card teal-theme full-width">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-arrow-up-right-dots"></i>
+                    ثانياً: تحسين الأداء الأكاديمي والإداري
+                </h2>
+                <ul class="styled-list">
+                    <li>
+                        <span class="li-number">1</span>
+                        تُستخدم نتائج الطعون الأكاديمية (مثل أخطاء التصحيح أو صعوبات المقررات) في:
+                        <!-- القائمة الفرعية التابعة للطعون الأكاديمية -->
+                        <ul class="sub-bullet-list">
+                            <li>مراجعة أساليب التقييم.</li>
+                            <li>تحسين نماذج الامتحانات.</li>
+                            <li>تطوير المحتوى الدراسي أو توزيع المقررات.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="li-number">2</span>
+                        تُستثمر الشكاوى الإدارية في تحسين جودة الخدمات داخل الكلية مثل التسجيل والمعامل والمكتبة.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- رابعاً: تطوير الكوادر وتحسين الجودة -->
+            <section class="section-card indigo-theme">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-users-gear"></i>
+                    رابعاً: تطوير الكوادر وتحسين الجودة
+                </h2>
+                <div class="standalone-text">
+                    يتم تنظيم ورش عمل أو برامج تطوير لتحسين الأداء وتقليل تكرار الأخطاء.
+                </div>
+            </section>
+
+            <!-- خامساً: تعزيز رضا الطالب وجودة الخدمة -->
+            <section class="section-card emerald-theme">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-heart-circle-check"></i>
+                    خامساً: تعزيز رضا الطالب وجودة الخدمة
+                </h2>
+                <ul class="styled-list">
+                    <li>
+                        <span class="li-number">1</span>
+                        تُسهم معالجة الطعون بشكل فعال في رفع مستوى رضا الطلاب وتعزيز الثقة في النظام الأكاديمي.
+                    </li>
+                    <li>
+                        <span class="li-number">2</span>
+                        يتم اعتبار الشكاوى والطعون أداة قياس لجودة الأداء وليس مجرد إجراءات تصحيحية.
+                    </li>
+                </ul>
+            </section>
+
+        </main>
+
+           </div>
+
+</body>
+</html>

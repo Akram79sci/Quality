@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المؤشر العاشر: آلية تنظيم اطلاع الطلاب على سجلاتهم</title>
+    <!-- استيراد خط Tajawal من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- استيراد مكتبة Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #1e3a8a; /* أزرق ملكي رسمي للمؤسسة */
+            --portal-blue: #0369a1; /* أزرق البوابة الإلكترونية */
+            --security-green: #0f766e; /* أخضر حماية البيانات والخصوصية */
+            --bg-light: #f8fafc; 
+            --card-white: #ffffff;
+            --text-dark: #0f172a;
+            --text-slate: #475569;
+            --accent-portal: rgba(3, 105, 161, 0.05);
+            --badge-bg: rgba(15, 118, 110, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* تصميم الهيدر الرئيسي للمؤشر */
+        header {
+            background-color: var(--card-white);
+            border-right: 6px solid var(--primary-color);
+            border-left: 1px solid #e2e8f0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-align: justify;
+            line-height: 1.5;
+        }
+
+        /* كرت تمهيد الآلية والخصوصية */
+        .intro-card {
+            background-color: var(--card-white);
+            border-top: 4px solid var(--security-green);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+            border-right: 1px solid #e2e8f0;
+            border-left: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .intro-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: var(--badge-bg);
+            color: var(--security-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .intro-text {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        /* القسم الرئيسي للآلية */
+        .mechanism-section {
+            background-color: var(--card-white);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--portal-blue);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 1rem;
+        }
+
+        /* الهيكل المتسلسل للآلية المنظمة */
+        .timeline-steps {
+            position: relative;
+            padding-right: 2rem;
+            border-right: 3px solid #e2e8f0;
+        }
+
+        .step-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .step-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* أرقام الخطوات الدائرية */
+        .step-number {
+            position: absolute;
+            right: calc(-2rem - 18px);
+            top: 2px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: var(--card-white);
+            border: 3px solid var(--portal-blue);
+            color: var(--portal-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.95rem;
+            z-index: 2;
+        }
+
+        .step-content {
+            background-color: var(--accent-portal);
+            padding: 1.2rem 1.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(3, 105, 161, 0.08);
+        }
+
+        .step-text {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            font-weight: 500;
+            text-align: justify;
+        }
+
+        /* القائمة الفرعية التابعة للنقطة الثانية */
+        .sub-features {
+            list-style: none;
+            margin-top: 0.8rem;
+            padding-right: 1.2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .sub-features li {
+            position: relative;
+            padding-right: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--text-slate);
+            font-weight: 700;
+        }
+
+        .sub-features li::before {
+            content: "\f058"; /* أيقونة تشيك دائري */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            color: var(--security-green);
+            font-size: 1rem;
+        }
+
+        /* تمييز الجهات المختصة في النقطة الخامسة داخل أقواس */
+        .authorities-badge {
+            display: inline-block;
+            background-color: rgba(30, 58, 138, 0.06);
+            color: var(--primary-color);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--text-slate);
+            font-size: 0.85rem;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1.5rem;
+        }
+
+        /* ملاءمة الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            body { padding: 1.5rem 0.5rem; }
+            header { padding: 1.2rem; }
+            header h1 { font-size: 1.2rem; }
+            .intro-card { flex-direction: column; text-align: center; align-items: center; }
+            .mechanism-section { padding: 1.2rem; }
+            .sub-features { grid-template-columns: 1fr; }
+        }
+
+        /* ===================================================
+           تنسيقات الطباعة الصارمة (لضمان الخروج في صفحة واحدة منسقة)
+           =================================================== */
+        @media print {
+            @page {
+                size: A4;
+                margin: 15mm 15mm;
+            }
+
+            body {
+                background-color: #ffffff;
+                padding: 0 !important;
+                margin: 0 !important;
+                font-size: 10pt;
+                line-height: 1.5 !important;
+            }
+
+            .container { max-width: 100%; width: 100%; }
+
+            header {
+                box-shadow: none !important;
+                border: 1px solid #94a3b8 !important;
+                border-right: 6px solid var(--primary-color) !important;
+                padding: 1.2rem !important;
+                margin-bottom: 1.2rem !important;
+            }
+
+            header h1 { font-size: 1.3rem !important; }
+
+            .intro-card {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                border-top: 4px solid var(--security-green) !important;
+                padding: 1rem !important;
+                margin-bottom: 1.2rem !important;
+            }
+
+            .intro-icon { background: none !important; color: #000000 !important; }
+
+            .mechanism-section {
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+                margin-bottom: 0 !important;
+            }
+
+            .section-title {
+                font-size: 1.15rem !important;
+                margin-bottom: 1.2rem !important;
+                padding-bottom: 0.5rem !important;
+                color: var(--primary-color) !important;
+            }
+
+            .timeline-steps { border-right: 2px solid #cbd5e1 !important; }
+
+            .step-item { margin-bottom: 1rem !important; page-break-inside: avoid !important; break-inside: avoid !important; }
+
+            .step-number {
+                width: 26px !important;
+                height: 26px !important;
+                right: calc(-2rem - 14px) !important;
+                top: 0px !important;
+                font-size: 0.85rem !important;
+                border: 2px solid var(--primary-color) !important;
+                color: var(--primary-color) !important;
+            }
+
+            .step-content {
+                background-color: #f8fafc !important;
+                border: 1px solid #e2e8f0 !important;
+                padding: 0.8rem 1rem !important;
+            }
+
+            .step-text { font-size: 0.95rem !important; }
+            .sub-features { margin-top: 0.5rem !important; gap: 0.5rem !important; }
+            .sub-features li { font-size: 0.9rem !important; }
+            .authorities-badge { background: #f1f5f9 !important; border: 1px solid #cbd5e1 !important; padding: 0.1rem 0.4rem !important; }
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            footer { margin-top: 1.5rem !important; padding-top: 0.8rem !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- الهيدر الرئيسي المعتمد على نص المؤشر بالكامل -->
+        <header>
+            <h1>المؤشر العاشر : للمؤسّسة آلية تنظمُ عملية اطلاع الطلاب على سجلاتهم.</h1>
+        </header>
+
+        <!-- كرت تمهيد الآلية والخصوصية -->
+        <div class="intro-card">
+            <div class="intro-icon">
+                <i class="fa-solid fa-user-shield"></i>
+            </div>
+            <div class="intro-text">
+                تتيح المؤسسة للطلاب الاطلاع على سجلاتهم الأكاديمية من خلال بوابة إلكترونية رسمية تضمن دقة المعلومات وحماية خصوصية البيانات.
+            </div>
+        </div>
+
+        <!-- قسم خطوات وآليات النظام الإلكتروني -->
+        <section class="mechanism-section">
+            <h2 class="section-title">
+                <i class="fa-solid fa-laptop-house"></i>
+                أنظام الاطلاع الإلكتروني
+            </h2>
+
+            <div class="timeline-steps">
+                
+                <!-- الخطوة 1 -->
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <p class="step-text">يمتلك كل طالب حساباً شخصياً على بوابة جامعة طرابلس باستخدام رقم قيد وكلمة مرور خاصة.</p>
+                    </div>
+                </div>
+
+                <!-- الخطوة 2 -->
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <p class="step-text">يتيح النظام للطالب الاطلاع في أي وقت على:</p>
+                        <ul class="sub-features">
+                            <li>المعدل الفصلي والتراكمي.</li>
+                            <li>المواد المجتازة والمواد الراسبة.</li>
+                            <li>الانذارات ان وجدت.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- الخطوة 3 -->
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <p class="step-text">يتم تحديث البيانات بشكل مباشر بعد اعتمادها من الأقسام العلمية، بما يضمن دقة وسرعة عرض النتائج.</p>
+                    </div>
+                </div>
+
+                <!-- الخطوة 4 -->
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <p class="step-text">يمكن للطالب طلب نسخ ورقية رسمية من سجله الأكاديمي (كشف الدرجات أو إفادة التخرج).</p>
+                    </div>
+                </div>
+
+                <!-- الخطوة 5 -->
+                <div class="step-item">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <p class="step-text">يتم تدقيق المستندات وسحبها من البوابة الإلكترونية ثم اعتمادها من الجهات المختصة:</p>
+                        <div class="authorities-badge">
+                            (مسجل الكلية , رئيس القسم , الدراسة والامتحانات بالكلية أوعميدها)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- الخطوة 6 -->
+                <div class="step-item">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <p class="step-text">تُستخدم هذه المستندات لأغراض النقل أو التقديم للوظائف أو المنح الدراسية.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+       
+    </div>
+
+</body>
+</html>

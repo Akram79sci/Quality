@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آلية توفير الدعم للطلاب ذوي الإعاقة</title>
+    <!-- استيراد خط Tajawal من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- استيراد مكتبة Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #4338ca; 
+            --secondary-color: #0d9488; 
+            --bg-color: #f8fafc; 
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --accent-glow: rgba(67, 56, 202, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.8;
+            padding: 3rem 1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+            padding: 3rem 2rem;
+            border-radius: 24px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e2e8f0;
+        }
+
+        header .main-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 500;
+            line-height: 1.9;
+        }
+
+        /* حاوية الخطوات في المتصفح */
+        .mechanism-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .mechan-card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem 2.5rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .mechan-card:hover {
+            transform: scale(1.01) translateX(-5px);
+            box-shadow: 0 12px 20px -3px rgba(67, 56, 202, 0.06);
+            border-color: rgba(67, 56, 202, 0.25);
+        }
+
+        .mechan-icon {
+            width: 65px;
+            height: 65px;
+            background-color: var(--accent-glow);
+            color: var(--primary-color);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(67, 56, 202, 0.1);
+        }
+
+        .mechan-card:hover .mechan-icon {
+            background-color: var(--primary-color);
+            color: #ffffff;
+        }
+
+        .mechan-content {
+            flex-grow: 1;
+        }
+
+        .mechan-content h2 {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .mechan-content p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .highlight {
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .mechan-badge {
+            font-size: 1.1rem;
+            font-weight: 800;
+            background-color: #f1f5f9;
+            color: var(--text-muted);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .mechan-card:hover .mechan-badge {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 5rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 2rem 1rem; margin-bottom: 2.5rem; }
+            header h1 { font-size: 1.7rem; }
+            header p { font-size: 1.05rem; }
+            .mechan-card { flex-direction: column; text-align: center; padding: 2rem 1.5rem; gap: 1.2rem; }
+            .mechan-badge { position: absolute; top: 15px; left: 15px; }
+        }
+
+        /* ===================================================
+           تعديلات الطباعة الذكية لمنع بتر الصناديق نهائياً
+           =================================================== */
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+                margin: 0;
+            }
+
+            /* إلغاء الـ Flexbox أثناء الطباعة لأن المتصفحات تفشل في حساب فواصل الصفحات بداخله */
+            .mechanism-flow {
+                display: block !important;
+            }
+
+            /* منع بتر الصناديق */
+            .mechan-card {
+                display: flex !important; /* الحفاظ على مظهر محتويات الصندوق داخلياً */
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                margin-bottom: 2rem; /* بديل الـ gap المفقود */
+                
+                /* السحر هنا: منع الانقسام */
+                page-break-inside: avoid !important;
+                break-inside: avoid !important; 
+            }
+
+            header {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                page-break-after: avoid; /* منع فصل العنوان عن أول صندوق */
+                break-after: avoid;
+            }
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <div class="main-icon">
+                <i class="fa-solid fa-wheelchair-move"></i>
+            </div>
+            <h1>المؤشر الخامس : للمؤسّسة آلية لتوفير الدّعم المناسب للطلاب ذوي الإعاقة</h1>
+            <p>تعتمد المؤسسة آلية واضحة لتوفير الدعم المناسب للطلاب ذوي الإعاقة بما يضمن دمجهم الكامل في العملية التعليمية وتوفير بيئة خصبة للنجاح.</p>
+        </header>
+
+        <main class="mechanism-flow">
+
+            <!-- البطاقة الأولى -->
+            <div class="mechan-card">
+                <div class="mechan-icon">
+                    <i class="fa-solid fa-clipboard-user"></i>
+                </div>
+                <div class="mechan-content">
+                    <h2>01. حصر وتحديد الاحتياجات</h2>
+                    <p>يتم <span class="highlight">تحديد احتياجات الطلاب</span> ذوي الإعاقة بدقة عند القبول أو التسجيل من خلال نماذج أو مقابلات مخصصة.</p>
+                </div>
+                <div class="mechan-badge">1</div>
+            </div>
+
+            <!-- البطاقة الثانية -->
+            <div class="mechan-card">
+                <div class="mechan-icon">
+                    <i class="fa-solid fa-file-signature"></i>
+                </div>
+                <div class="mechan-content">
+                    <h2>02. الدعم الأكاديمي والتقييم العادل</h2>
+                    <p>توفر المؤسسة <span class="highlight">دعماً أكاديمياً يتناسب تماماً</span> مع طبيعة احتياجاتهم، من خلال مراعاة ظروفهم الخاصة أثناء التقييم والامتحانات بما يحقق العدالة المطلقة وتكافؤ الفرص.</p>
+                </div>
+                <div class="mechan-badge">2</div>
+            </div>
+
+            <!-- البطاقة الثالثة -->
+            <div class="mechan-card">
+                <div class="mechan-icon">
+                    <i class="fa-solid fa-building-circle-check"></i>
+                </div>
+                <div class="mechan-content">
+                    <h2>03. تهيئة وتطوير البيئة التعليمية</h2>
+                    <p>يتم <span class="highlight">تهيئة البنية التحتية للمؤسسة</span> لتلائم حركتهم، مثل توفير ممرات مجهزة (Ramps)، مقاعد مريحة ومخصصة مساعدة داخل القاعات والمعامل التدريبية.</p>
+                </div>
+                <div class="mechan-badge">3</div>
+            </div>
+
+            <!-- البطاقة الرابعة -->
+            <div class="mechan-card">
+                <div class="mechan-icon">
+                    <i class="fa-solid fa-users-gear"></i>
+                </div>
+                <div class="mechan-content">
+                    <h2>04. الإشراف والمتابعة المستمرة</h2>
+                    <p>تُكلف <span class="highlight">لجنة مختصة </span> بمتابعة شؤون الطلاب ذوي الإعاقة والتنسيق مع الأقسام الأكاديمية لتلبية احتياجاتهم. </p>
+                </div>
+                <div class="mechan-badge">4</div>
+            </div>
+
+            <!-- البطاقة الخامسة -->
+            <div class="mechan-card">
+                <div class="mechan-icon">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                </div>
+                <div class="mechan-content">
+                    <h2>05. ترسيخ مبدأ تكافؤ الفرص</h2>
+                    <p>تلتزم المؤسسة التزاماً صارماً بـ <span class="highlight">مبدأ تكافؤ الفرص والعدالة</span>؛ لضمان اندماج الطلاب ذوي الإعاقة بشكل طبيعي وإيجابي دون أي تمييز داخل البيئة التعليمية والمجتمعية.</p>
+                </div>
+                <div class="mechan-badge">5</div>
+            </div>
+
+        </main>
+
+        
+    </div>
+
+</body>
+</html>

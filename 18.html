@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المؤشر الثامن عشر: أنظمة وطرق التواصل خارج أوقات الدوام الرسمي</title>
+    <!-- استيراد خط Tajawal من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- استيراد مكتبة Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #1e3a8a; /* أزرق ملكي رسمي للمؤسسة */
+            --systems-blue: #0284c7; /* لون الأنظمة الإلكترونية */
+            --fast-teal: #0d9488; /* لون قنوات التواصل السريع */
+            --social-indigo: #4f46e5; /* لون شبكات التواصل الاجتماعي */
+            --efficiency-emerald: #16a34a; /* لون كفاءة وفعالية التواصل */
+            --bg-light: #f8fafc; 
+            --card-white: #ffffff;
+            --text-dark: #0f172a;
+            --text-slate: #475569;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* تصميم الهيدر الرئيسي للمؤشر */
+        header {
+            background-color: var(--card-white);
+            border-right: 6px solid var(--primary-color);
+            border-left: 1px solid #e2e8f0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-align: justify;
+            line-height: 1.5;
+        }
+
+        /* كرت مقدمة التزام المؤسسة بالتواصل الرقمي المستمر */
+        .intro-card {
+            background-color: var(--card-white);
+            border-top: 4px solid var(--primary-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+            border-right: 1px solid #e2e8f0;
+            border-left: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .intro-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: rgba(30, 58, 138, 0.06);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .intro-text {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        /* التخطيط الشبكي المتوازن لتوزيع المحاور */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-card {
+            background-color: var(--card-white);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 1rem;
+        }
+
+        /* تخصيص الثيمات اللونية الفرعية لكل محور */
+        .blue-theme { border-top: 4px solid var(--systems-blue); }
+        .blue-theme .section-title { color: var(--systems-blue); }
+        
+        .teal-theme { border-top: 4px solid var(--fast-teal); }
+        .teal-theme .section-title { color: var(--fast-teal); }
+        
+        .indigo-theme { border-top: 4px solid var(--social-indigo); }
+        .indigo-theme .section-title { color: var(--social-indigo); }
+        
+        .emerald-theme { border-top: 4px solid var(--efficiency-emerald); }
+        .emerald-theme .section-title { color: var(--efficiency-emerald); }
+
+        /* تمديد الكروت الهامة لتشغل العرض الكامل للشبكة */
+        .full-width {
+            grid-column: span 2;
+        }
+
+        /* القوائم غير المرقمة (المحاور الأول والثاني والثالث) */
+        .bullet-styled-list {
+            list-style: none;
+        }
+
+        .bullet-styled-list li {
+            position: relative;
+            padding-right: 1.8rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: var(--text-dark);
+            text-align: justify;
+            font-weight: 500;
+        }
+
+        .bullet-styled-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .bullet-styled-list li::before {
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 2px;
+            font-size: 1.05rem;
+        }
+
+        /* تخصيص الأيقونات المخرجة لكل قائمة فرعية */
+        .blue-theme .bullet-styled-list li::before { content: "\f0a1"; color: var(--systems-blue); } /* مكبر صوت للأنظمة الرسمية */
+        .teal-theme .bullet-styled-list li::before { content: "\f0e0"; color: var(--fast-teal); } /* رسالة للتواصل السريع */
+        .indigo-theme .bullet-styled-list li::before { content: "\f0c2"; color: var(--social-indigo); } /* سحابة للتواصل الاجتماعي */
+
+        /* القوائم المرقمة المنسقة (المحور الرابع) */
+        .numbered-styled-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .numbered-styled-list li {
+            position: relative;
+            padding-right: 2rem;
+            font-size: 1rem;
+            color: var(--text-dark);
+            text-align: justify;
+            font-weight: 500;
+        }
+
+        .numbered-styled-list li .li-number {
+            position: absolute;
+            right: 0;
+            top: 3px;
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            background-color: rgba(22, 163, 74, 0.06); 
+            color: var(--efficiency-emerald);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--text-slate);
+            font-size: 0.85rem;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1.5rem;
+        }
+
+        /* ضمان تجاوب الصفحة بالكامل على الهواتف والأجهزة اللوحية */
+        @media (max-width: 992px) {
+            .grid-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+            .full-width { grid-column: span 1; }
+            .numbered-styled-list { grid-template-columns: 1fr; gap: 1rem; }
+            body { padding: 1.5rem 1rem; }
+            header { padding: 1.5rem; }
+            header h1 { font-size: 1.25rem; }
+        }
+
+        /* ===================================================
+           تنسيقات الطباعة الرقمية وحفظ ملفات PDF الاحترافية
+           =================================================== */
+        @media print {
+            @page {
+                size: A4;
+                margin: 15mm 15mm;
+            }
+
+            body {
+                background-color: #ffffff;
+                padding: 0 !important;
+                margin: 0 !important;
+                font-size: 10.5pt;
+                line-height: 1.6 !important;
+            }
+
+            .container { max-width: 100%; width: 100%; }
+
+            header {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                border-right: 6px solid var(--primary-color) !important;
+                padding: 1.2rem !important;
+                margin-bottom: 1.2rem !important;
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            header h1 { font-size: 1.35rem !important; }
+
+            .intro-card {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                border-top: 4px solid var(--primary-color) !important;
+                padding: 1rem !important;
+                margin-bottom: 1.5rem !important;
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            .intro-icon { background: none !important; color: var(--primary-color) !important; }
+
+            .grid-layout {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 1.2rem !important;
+                margin-bottom: 1.2rem !important;
+            }
+
+            .section-card {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                padding: 1.2rem !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .section-title {
+                font-size: 1.1rem !important;
+                margin-bottom: 1rem !important;
+                padding-bottom: 0.5rem !important;
+            }
+
+            .bullet-styled-list li { margin-bottom: 0.6rem !important; font-size: 0.95rem !important; }
+            .numbered-styled-list { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 1rem !important; }
+            .numbered-styled-list li { font-size: 0.95rem !important; }
+            .numbered-styled-list li .li-number { background: none !important; border: 1px solid #94a3b8 !important; }
+
+            .full-width { grid-column: span 2 !important; }
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            footer { margin-top: 1.5rem !important; padding-top: 0.8rem !important; page-break-before: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- الهيدر الرئيسي المعتمد على نص المؤشر حرفياً -->
+        <header>
+            <h1>المؤشر الثامن عشر : للمؤسّسة أنظمة، وطرق فعّالة؛ للتواصل مع الطلاب خارج أوقات الدّوام الرسمي.</h1>
+        </header>
+
+        <!-- كرت تمهيد الآلية والالتزام باستمرارية التواصل الرقمي -->
+        <div class="intro-card">
+            <div class="intro-icon">
+                <i class="fa-solid fa-tower-cell"></i>
+            </div>
+            <div class="intro-text">
+                تعتمد المؤسسة على منظومة متكاملة من الأنظمة الرقمية وقنوات التواصل الحديثة لضمان استمرار التواصل مع الطلاب خارج أوقات الدوام الرسمي.
+            </div>
+        </div>
+
+        <!-- شبكة قنوات وآليات الاتصال والمتابعة الإلكترونية المعتمدة -->
+        <main class="grid-layout">
+            
+            <!-- أولاً: الأنظمة الإلكترونية الرسمية -->
+            <section class="section-card blue-theme">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-laptop-file"></i>
+                    أولاً: الأنظمة الإلكترونية الرسمية
+                </h2>
+                <ul class="bullet-styled-list">
+                    <li>تُستخدم بوابة الدراسة والامتحانات كمنصة رسمية لإدارة شؤون الطلاب الأكاديمية مثل النتائج، تسجيل المقررات، ومتابعة الخطة الدراسية.</li>
+                    <li>توفر البوابة حساباً شخصياً لكل طالب بما يضمن سرية البيانات ودقة المعلومات.</li>
+                    <li>تُستخدم أنظمة إدارة التعلم (LMS) مثل Moodle وGoogle Classroom لرفع المحاضرات، تسليم الواجبات، وإجراء الاختبارات والنقاشات التفاعلية.</li>
+                    <li>التواصل مع المكاتب الادارية , المشرفين.</li>
+                </ul>
+            </section>
+
+            <!-- ثانياً: قنوات التواصل السريع -->
+            <section class="section-card teal-theme">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-bolt-lightning"></i>
+                    ثانياً: قنوات التواصل السريع
+                </h2>
+                <ul class="bullet-styled-list">
+                    <li>يتم اعتماد قنوات Telegram الرسمية لكل قسم علمي لنشر الإعلانات العاجلة والتحديثات الأكاديمية.</li>
+                    <li>تُستخدم مجموعات WhatsApp في نطاقات محدودة (مثل مجموعات المقررات أو السنوات الدراسية) للتواصل السريع والإجابة على الاستفسارات المباشرة.</li>
+                    <li>تُدار هذه القنوات من قبل منسقي الدراسة أو أعضاء هيئة التدريس لضمان الموثوقية وتنظيم المحتوى.</li>
+                </ul>
+            </section>
+
+            <!-- ثالثاً: شبكات التواصل الاجتماعي -->
+            <section class="section-card indigo-theme full-width">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-share-nodes"></i>
+                    ثالثاً: شبكات التواصل الاجتماعي
+                </h2>
+                <ul class="bullet-styled-list">
+                    <li>تُستخدم الصفحات الرسمية على Facebook كقناة إعلامية رئيسية لنشر القرارات المهمة مثل الجداول، الامتحانات، والتعديلات الإدارية.</li>
+                    <li>تُسهم هذه الصفحات في تعزيز التواصل المؤسسي ونشر المستجدات للطلاب والمجتمع الأكاديمي.</li>
+                </ul>
+            </section>
+
+            <!-- رابعاً: كفاءة وفعالية التواصل -->
+            <section class="section-card emerald-theme full-width">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    رابعاً: كفاءة وفعالية التواصل
+                </h2>
+                <ul class="numbered-styled-list">
+                    <li>
+                        <span class="li-number">1</span>
+                        تضمن هذه الأنظمة استمرارية التواصل خارج أوقات الدوام الرسمي.
+                    </li>
+                    <li>
+                        <span class="li-number">2</span>
+                        تحقق سرعة في إيصال المعلومات، وتوسيع نطاق الوصول، وتعزيز التفاعل بين الطلاب والمؤسسة.
+                    </li>
+                </ul>
+            </section>
+
+        </main>
+
+            </div>
+
+</body>
+</html>

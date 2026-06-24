@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المؤشر الثالث عشر: آلية الطعون، والتظلم، والشكاوى</title>
+    <!-- استيراد خط Tajawal من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- استيراد مكتبة Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #1e3a8a; /* أزرق ملكي رسمي */
+            --appeals-red: #991b1b; /* أحمر قرمزي للطعون والعدالة */
+            --complaints-blue: #0369a1; /* أزرق إداري للشكاوى والتسلسل */
+            --channels-purple: #6d28d9; /* بنفسجي لقنوات التقديم */
+            --principles-emerald: #15803d; /* أخضر للشفافية والحيادية */
+            --bg-light: #f8fafc; 
+            --card-white: #ffffff;
+            --text-dark: #0f172a;
+            --text-slate: #475569;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* تصميم الهيدر الرئيسي للمؤشر */
+        header {
+            background-color: var(--card-white);
+            border-right: 6px solid var(--primary-color);
+            border-left: 1px solid #e2e8f0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-align: justify;
+            line-height: 1.5;
+        }
+
+        /* كرت مقدمة التزام المؤسسة بالعدالة والشفافية */
+        .intro-card {
+            background-color: var(--card-white);
+            border-top: 4px solid var(--primary-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+            border-right: 1px solid #e2e8f0;
+            border-left: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .intro-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: rgba(30, 58, 138, 0.06);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .intro-text {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        /* التخطيط الشبكي لتوزيع آليات النظم الإدارية والأكاديمية */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-card {
+            background-color: var(--card-white);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 1rem;
+        }
+
+        /* تنسيق الهوية اللونية الفرعية لكل قسم */
+        .red-theme { border-top: 4px solid var(--appeals-red); }
+        .red-theme .section-title { color: var(--appeals-red); }
+        
+        .blue-theme { border-top: 4px solid var(--complaints-blue); }
+        .blue-theme .section-title { color: var(--complaints-blue); }
+        
+        .purple-theme { border-top: 4px solid var(--channels-purple); }
+        .purple-theme .section-title { color: var(--channels-purple); }
+        
+        .emerald-theme { border-top: 4px solid var(--principles-emerald); }
+        .emerald-theme .section-title { color: var(--principles-emerald); }
+
+        /* جعل قسم الطعون يمتد بكامل العرض */
+        .full-width {
+            grid-column: span 2;
+        }
+
+        /* القوائم المرقمة المنسقة */
+        .styled-list {
+            list-style: none;
+        }
+
+        .styled-list li {
+            position: relative;
+            padding-right: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: var(--text-dark);
+            text-align: justify;
+            font-weight: 500;
+        }
+
+        .styled-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .styled-list li .li-number {
+            position: absolute;
+            right: 0;
+            top: 3px;
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        /* ألوان خلفيات الأرقام حسب هوية القسم */
+        .red-theme .styled-list li .li-number { background-color: rgba(153, 27, 27, 0.06); color: var(--appeals-red); }
+        .blue-theme .styled-list li .li-number { background-color: rgba(3, 105, 161, 0.06); color: var(--complaints-blue); }
+        .purple-theme .styled-list li .li-number { background-color: rgba(109, 40, 217, 0.06); color: var(--channels-purple); }
+        .emerald-theme .styled-list li .li-number { background-color: rgba(21, 128, 61, 0.06); color: var(--principles-emerald); }
+
+        /* عرض شبكي منسق لخطوات الطعون الممتدة */
+        .appeals-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        /* تنسيق الهيكل المتسلسل الإداري (التسلسل الشجري) */
+        .hierarchy-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin: 1rem 1.5rem 1rem 0;
+            position: relative;
+            border-right: 2px dashed #cbd5e1;
+            padding-right: 1.2rem;
+        }
+
+        .hierarchy-node {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            width: fit-content;
+        }
+
+        .hierarchy-node::before {
+            content: "\f105"; /* سهم يربط المستويات */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: -6px;
+            color: var(--complaints-blue);
+            background: var(--card-white);
+            width: 12px;
+            height: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        .bullet-marker {
+            position: relative;
+            padding-right: 1.5rem;
+            color: var(--text-dark);
+            font-weight: 500;
+            text-align: justify;
+        }
+
+        .bullet-marker::before {
+            content: "\f058"; /* تشيك رسمي */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 3px;
+            color: var(--channels-purple);
+            font-size: 1rem;
+        }
+        
+        .emerald-theme .bullet-marker::before {
+            color: var(--principles-emerald);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--text-slate);
+            font-size: 0.85rem;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1.5rem;
+        }
+
+        /* ملاءمة الشاشات الصغيرة والمتوسطة */
+        @media (max-width: 992px) {
+            .grid-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+            .full-width { grid-column: span 1; }
+            .appeals-grid { grid-template-columns: 1fr; gap: 1rem; }
+            body { padding: 1.5rem 1rem; }
+            header { padding: 1.5rem; }
+            header h1 { font-size: 1.25rem; }
+        }
+
+        /* ===================================================
+           تنسيقات الطباعة الاحترافية (تمنع تداخل العناصر والقطع)
+           =================================================== */
+        @media print {
+            @page {
+                size: A4;
+                margin: 15mm 15mm;
+            }
+
+            body {
+                background-color: #ffffff;
+                padding: 0 !important;
+                margin: 0 !important;
+                font-size: 10.5pt;
+                line-height: 1.6 !important;
+            }
+
+            .container { max-width: 100%; width: 100%; }
+
+            header {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                border-right: 6px solid var(--primary-color) !important;
+                padding: 1.2rem !important;
+                margin-bottom: 1.2rem !important;
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            header h1 { font-size: 1.35rem !important; }
+
+            .intro-card {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                border-top: 4px solid var(--primary-color) !important;
+                padding: 1rem !important;
+                margin-bottom: 1.5rem !important;
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            .intro-icon { background: none !important; color: var(--primary-color) !important; }
+
+            .grid-layout {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 1.2rem !important;
+                margin-bottom: 1.2rem !important;
+            }
+
+            .section-card {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                padding: 1.2rem !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .section-title {
+                font-size: 1.1rem !important;
+                margin-bottom: 1rem !important;
+                padding-bottom: 0.5rem !important;
+            }
+
+            .styled-list li { margin-bottom: 0.6rem !important; font-size: 0.95rem !important; }
+            .styled-list li .li-number { background: none !important; border: 1px solid #94a3b8 !important; }
+            
+            .full-width { grid-column: span 2 !important; }
+            .appeals-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 1rem !important; }
+
+            .hierarchy-flow { border-right: 2px dashed #94a3b8 !important; }
+            .hierarchy-node { background: #f8fafc !important; border: 1px solid #cbd5e1 !important; }
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            footer { margin-top: 1.5rem !important; padding-top: 0.8rem !important; page-break-before: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- الهيدر الرئيسي المعتمد على نص المؤشر حرفياً -->
+        <header>
+            <h1>المؤشر الثالث عشر : للمؤسسة آلية واضحة للطعن، والتظلم، والشكاوى، وكيفية التعامل معها.</h1>
+        </header>
+
+        <!-- كرت مقدمة التزام المؤسسة بنظام الضمان والعدالة -->
+        <div class="intro-card">
+            <div class="intro-icon">
+                <i class="fa-solid fa-scale-balanced"></i>
+            </div>
+            <div class="intro-text">
+                تعتمد المؤسسة نظاماً إدارياً وأكاديمياً واضحاً لتنظيم الطعون والتظلمات والشكاوى بما يضمن العدالة والشفافية في التعامل مع جميع الحالات.
+            </div>
+        </div>
+
+        <!-- شبكة النظم والإجراءات والآليات المتبعة -->
+        <main class="grid-layout">
+            
+            <!-- أولاً: آلية الطعون (مراجعة الدرجات) - ممتد بكامل العرض -->
+            <section class="section-card red-theme full-width">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-file-signature"></i>
+                    أولاً: آلية الطعون (مراجعة الدرجات)
+                </h2>
+                <div class="appeals-grid">
+                    <ul class="styled-list">
+                        <li>
+                            <span class="li-number">1</span>
+                            يتم الإعلان رسمياً عن فتح باب الطعون بعد إعلان النتائج بفترة زمنية محددة (عادة أسبوع).
+                        </li>
+                        <li>
+                            <span class="li-number">2</span>
+                            يتقدم الطالب بطلب مراجعة عبر نموذج رسمي من خلال البوابة الالكترونية لنظام الدراسة والامتحانات.
+                        </li>
+                        <li>
+                            <span class="li-number">3</span>
+                            تُشكل لجنة علمية لمراجعة ورقة الإجابة تشمل أستاذ المقرر وعضوين من هيئة التدريس ذات الاختصاص.
+                        </li>
+                    </ul>
+                    <ul class="styled-list">
+                        <li>
+                            <span class="li-number">4</span>
+                            تقوم اللجنة بالتأكد من صحة التصحيح وجمع الدرجات وعدم إغفال أي جزء من الإجابة.
+                        </li>
+                        <li>
+                            <span class="li-number">5</span>
+                            يتم اعتماد النتائج النهائية وإبلاغ الطالب بالقرار الرسمي بعد المراجعة.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ثانياً: آلية الشكاوى الإدارية والأكاديمية -->
+            <section class="section-card blue-theme">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-sitemap"></i>
+                    ثانياً: آلية الشكاوى الإدارية والأكاديمية
+                </h2>
+                <ul class="styled-list">
+                    <li>
+                        <span class="li-number">1</span>
+                        تُعالج الشكاوى وفق تسلسل إداري يبدأ بالقسم العلمي ثم يتدرج إلى مستويات أعلى عند الحاجة:
+                        
+                        <!-- الهيكل المتسلسل الإداري الشجري الشفاف -->
+                        <div class="hierarchy-flow">
+                            <div class="hierarchy-node">رئيس القسم العلمي</div>
+                            <div class="hierarchy-node">مسجل الكلية / الدراسة والامتحانات بالكلية.</div>
+                            <div class="hierarchy-node">وكيل الكلية للشؤون العلمية</div>
+                            <div class="hierarchy-node">عميد الكلية</div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="li-number">2</span>
+                        تشمل الشكاوى الجوانب الأكاديمية (الجداول، الامتحانات، التسجيل) والإدارية (الخدمات والتعاملات).
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ثالثاً: قنوات تقديم الشكاوى -->
+            <section class="section-card purple-theme">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-envelopes-bulk"></i>
+                    ثالثاً: قنوات تقديم الشكاوى
+                </h2>
+                <ul class="styled-list">
+                    <li>
+                        <span class="li-number">1</span>
+                        <div class="bullet-marker">توفر المؤسسة قنوات متعددة لتقديم الشكاوى مثل النماذج الورقية، صناديق الشكاوى، والقنوات الإلكترونية الرسمية.</div>
+                    </li>
+                    <li>
+                        <span class="li-number">2</span>
+                        <div class="bullet-marker">يمكن للطلاب أيضاً التوجه عبر اتحاد الطلبة كجهة وسيطة لنقل ومتابعة الشكاوى مع الإدارة.</div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- رابعاً: مبادئ التعامل مع الشكاوى والطعون - ممتد بكامل العرض لتنظيم النهاية البصرية -->
+            <section class="section-card emerald-theme full-width">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-gavel"></i>
+                    رابعاً: مبادئ التعامل مع الشكاوى والطعون
+                </h2>
+                <div class="appeals-grid">
+                    <ul class="styled-list">
+                        <li>
+                            <span class="li-number">1</span>
+                            <div class="bullet-marker">الالتزام بالمواعيد المحددة لتقديم الطعون لضمان قبولها.</div>
+                        </li>
+                        <li>
+                            <span class="li-number">2</span>
+                            <div class="bullet-marker">ضرورة إرفاق المستندات الداعمة لتعزيز دقة المعالجة.</div>
+                        </li>
+                    </ul>
+                    <ul class="styled-list">
+                        <li>
+                            <span class="li-number">3</span>
+                            <div class="bullet-marker">اعتماد الشفافية والحيادية في دراسة جميع الطلبات وفق اللوائح المعمول بها.</div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+
+       
+    </div>
+
+</body>
+</html>

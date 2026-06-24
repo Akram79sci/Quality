@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة مؤشرات الجودة والاعتماد الأكاديمي | كلية العلوم</title>
+    <!-- استيراد خط Tajawal الأكاديمي -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- استيراد أيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #1e3a8a; /* الأزرق الملكي لجامعة طرابلس */
+            --accent-color: #d97706;  /* الذهبي الأكاديمي للتفوق */
+            --bg-neutral: #f8fafc;     /* خلفية مريحة للعين */
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --success-green: #10b981;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-neutral);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* الهيدر الإعلاني الفاخر للمؤسسة بعد دمج الشعار */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 4px solid var(--primary-color);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04);
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 8px;
+            height: 100%;
+            background-color: var(--accent-color);
+        }
+
+        /* تنظيم محاذاة الشعار والنصوص */
+        .header-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1.8rem;
+        }
+
+        .logo-container {
+            flex-shrink: 0;
+        }
+
+        .college-logo {
+            height: 95px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .header-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .university-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+
+        .faculty-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+        }
+
+        .office-title {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--accent-color);
+            align-self: flex-start;
+            background-color: rgba(217, 119, 6, 0.08);
+            padding: 0.3rem 1.2rem;
+            border-radius: 50px;
+            margin-top: 0.3rem;
+        }
+
+        /* شبكة عرض كروت المؤشرات */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        /* تصميم كرت المؤشر التفاعلي */
+        .indicator-card {
+            background-color: var(--card-bg);
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+            position: relative;
+        }
+
+        .indicator-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 12px 20px -5px rgba(30, 58, 138, 0.1);
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .badge-number {
+            background-color: rgba(30, 58, 138, 0.06);
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: 800;
+            padding: 0.2rem 0.8rem;
+            border-radius: 8px;
+            border: 1px solid rgba(30, 58, 138, 0.1);
+        }
+
+        .completed-active .badge-number {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--success-green);
+            border-color: rgba(16, 185, 129, 0.2);
+        }
+
+        .card-icon {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+        }
+
+        .indicator-card:hover .card-icon {
+            color: var(--accent-color);
+        }
+
+        .indicator-title {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-align: justify;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            line-height: 1.5;
+        }
+
+        .indicator-card:hover .indicator-title {
+            color: var(--primary-color);
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+        }
+
+        .card-footer i {
+            margin-right: 0.4rem;
+            transition: transform 0.3s ease;
+        }
+
+        .indicator-card:hover .card-footer {
+            color: var(--accent-color);
+        }
+
+        .indicator-card:hover .card-footer i {
+            transform: translateX(-4px);
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        /* تجاوب الشاشات للموبايل والأجهزة اللوحية */
+        @media (max-width: 768px) {
+            body { padding: 1rem 0.5rem; }
+            header { padding: 1.5rem 1rem; }
+            .header-wrapper { flex-direction: column; text-align: center; gap: 1rem; }
+            .college-logo { height: 85px; margin: 0 auto; }
+            .office-title { align-self: center; }
+            .faculty-title { font-size: 1.4rem; }
+            .dashboard-grid { grid-template-columns: 1fr; gap: 1rem; }
+        }
+
+        /* إعدادات الطباعة الأنيقة للمستند وحفظ الـ PDF */
+        @media print {
+            body { background: #fff; padding: 0; }
+            header { box-shadow: none; border: 1px solid #cbd5e1; }
+            .college-logo { height: 80px !important; }
+            .dashboard-grid { grid-template-columns: 1fr 1fr !important; gap: 10mm; }
+            .indicator-card { box-shadow: none !important; border: 1px solid #cbd5e1 !important; page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- الهوية الأكاديمية العليا متضمنة الشعار الرسمي الموجه -->
+        <header>
+            <div class="header-wrapper">
+                <div class="logo-container">
+                    <img src="sci_logo.png" alt="شعار كلية العلوم - جامعة طرابلس" class="college-logo">
+                </div>
+                <div class="header-text">
+                    <div class="university-title">جامعة طرابلس</div>
+                    <div class="faculty-title">كلية العلوم | Faculty of Science</div>
+                    <div class="office-title"><i class="fa-solid fa-shield-halved"></i> مكتب ضمان الجودة وتقييم الأداء الأكاديمي</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- شبكة المؤشرات الكاملة (25 مؤشر) -->
+        <main class="dashboard-grid">
+
+            <!-- المؤشرات من 1 إلى 11 -->
+            <a href="1.html" class="indicator-card">
+                <div class="card-top"><span class="badge-number">المؤشر 1</span><i class="fa-solid fa-folder card-icon"></i></div>
+                <div class="indicator-title">المؤشر الأول: متطلبات ومعايير الاعتماد البرامجي والمؤسسي للكلية.</div>
+                <div class="card-footer">استعراض الدليل <i class="fa-solid fa-arrow-left"></i></div>
+            </a>
+
+            <a href="2.html" class="indicator-card">
+                <div class="card-top"><span class="badge-number">المؤشر 2</span><i class="fa-solid fa-folder card-icon"></i></div>
+                <div class="indicator-title">المؤشر الثاني: رسالة الكلية وأهدافها الإستراتيجية وآليات تطبيقها وبلوغها.</div>
+                <div class="card-footer">استعراض الدليل <i class="fa-solid fa-arrow-left"></i></div>
+            </a>
+
+            <a href="3.html" class="indicator-card">
+                <div class="card-top"><span class="badge-number">المؤشر 3</span><i class="fa-solid fa-folder card-icon"></i></div>
+                <div class="indicator-title">المؤشر الثالث: الهيكل التنظيمي للكلية وتوصيف الاختصاصات الإدارية والعلمية.</div>
+                <div class="card-footer">استعراض الدليل <i class="fa-solid fa-arrow-left"></i></div>
+            </a>
+
+            <a href="4.html" class="indicator-card">
+                <div class="card-top"><span class="badge-number">المؤشر 4</span><i class="fa-solid fa-folder card-icon"></i></div>
+                <div class="indicator-title">المؤشر الرابع: نظم إدارة وضمان جودة الأداء التعليمي والمؤسسي الداخلي.</div>
+                <div class="card-footer">استعراض الدليل <i class="fa-solid fa-arrow-left"></i></div>
+            </a>
+
+            <a href="5.html" class="indicator-card">
+                <div class="card-top"><span class="badge-number">المؤشر 5</span><i class="fa-solid fa-folder card-icon"></i></div>
+                <div class="indicator-title">المؤشر الخامس: آليات تصميم واعتماد البرامج والمقررات الدراسية والأكاديمية.</div>
+                <div class="card-footer">استعراض الدليل <i class="fa-solid fa-arrow-left"></i></div>
+            </a>
+
+            <a href="6.html" class="indicator-card">
+                <div class="card-top"><span class="badge-number">المؤشر 6</span><i class="fa-solid fa-folder card-icon"></i></div>
+                <div class="indicator-title">المؤشر السادس: كفاءة استراتيجيات التدريس والتعلم المتبعة في الأقسام العلمية.</div>
+                <div class="card-footer">استعراض الدليل <i class="fa-solid fa-arrow-left"></i></div>
+            </a>
+
+            <a href="7.html" class="indicator-card">
+                <div class="card-top"><span class="badge-number">المؤشر 7</span><i class="fa-solid fa-folder card-icon"></i></div>
+                <div class="indicator-title">المؤشر السابع: نظم تقييم الطلاب والامتحانات ومعايير قياس نواتج التعلم.</div>
+                <div class="card-footer">استعراض الدليل <i class="fa-solid fa-arrow-left"></i></div>
+            </a>
+
+            <a href="8.html" class="indicator-card">
+                <div class="card-top"><span class="badge-number">المؤشر 8</span><i class="fa-solid fa-folder card-icon"></i></div>
+                <div class="indicator-title">المؤشر الثامن: معايير اختيار وتعيين وترقية أعضاء هيئة التدريس والكوادر.</div>
+                <div class="card-footer">استعراض الدليل <i class="fa-solid fa-arrow-left"></i></div>
+            </a>
+
+            <a href="9.html" class="indicator-card">
+                <div class="card-top"><span class="badge-number">المؤشر 9</span><i class="fa-solid fa-folder card-icon"></i></div>
+                <div class="indicator-title">المؤشر التاسع: برامج التطوير المهني المستمر لأعضاء هيئة التدريس والموظفين.</div>
+                <div class="card-footer">استعراض الدليل <i class="fa-solid fa-arrow-left"></i></div>
+            </a>
+
+            <a href="10.html" class="indicator-card">
+                <div class="card-top"><span class="badge-number">المؤشر 10</span><i class="fa-solid fa-folder card-icon"></i></div>
+                <div class="indicator-title">المؤشر العاشر: سياسات وقواعد قبول الطلاب والتحويل والتسجيل بالكلية.</div>
+                <div class="card-footer">استعراض الدليل <i class="fa-solid fa-arrow-left"></i></div>
+            </a>
+
+            <a href="11.html" class="indicator-card">
+                <div class="card-top"><span class="badge-number">المؤشر 11</span><i class="fa-solid fa-folder card-icon"></i></div>
+                <div class="indicator-title">المؤشر الحادي عشر: كفاءة وجودة الخدمات الطلابية والأنشطة الداعمة بالمؤسسة.</div>
+                <div class="card-footer">استعراض الدليل <i class="fa-solid fa-arrow-left"></i></div>
+            </a>
+
+            <!-- المؤشرات المكتملة والنشطة حالياً (12 و 13 و 14) -->
+            <a href="12.html" class="indicator-card completed-active">
+                <div class="card-top"><span class="badge-number">المؤشر 12 ✨</span><i class="fa-solid fa-circle-check" style="color: var(--success-green);"></i></div>
+                <div class="indicator-title">آلية تُمكّن الطلاب من التواصل مع أعضاء هيئة التدريس والكوادر المساندة.</div>
+                <div class="card-footer" style="color: var(--success-green);">استعراض الدليل المعتمد <i class="fa-solid fa-arrow-left"></i></div>
+            </a>
+
+            <a href="13.html" class="indicator-card completed-active">
+                <div class="card-top"><span class="badge-number">المؤشر 13 ✨</span><i class="fa-solid fa-circle-check" style="color: var(--success-green);"></i></div>
+                <div class="indicator-title">آلية واضحة للطعن، والتظلم، والشكاوى، وكيفية التعامل معها ورصد مستنداتها.</div>
+                <div class="card-footer" style="color: var(--success-green);">استعراض الدليل المعتمد <i class="fa-solid fa-arrow-left"></i></div>
+            </a>
+
+            <a href="14.html" class="indicator-card completed-active">
+                <div class="card-top"><span class="badge-number">المؤشر 14 ✨</span><i class="fa-solid fa-circle-check" style="color: var(--success-green);"></i></div>
+                <div class="indicator-title">آلية الاستفادة من معالجة الطعون، وشكاوى الطلاب في تطوير الأداء الأكاديمي.</div>
+                <div class="card-footer" style="color: var(--success-green);">استعراض الدليل المعتمد <i class="fa-solid fa-arrow-left"></i></div>
+            </a>
+
+            <!-- المؤشرات من 15 إلى 17 -->
+            <a href="15.html" class="indicator-card">
+                <div class="card-top"><span class="badge-number">المؤشر 15</span><i class="fa-solid fa-folder card-icon"></i></div>
+                <div class="indicator-title">المؤشر الخامس عشر: المرافق والمباني التعليمية والقاعات الدراسية ومدى جاهزيتها.</div>
+                <div class="card-footer">استعراض الدليل <i class="fa-solid fa-arrow-left"></i></div>
+            </a>
+
+            <a href="16.html" class="indicator-card">
+                <div class="card-top"><span class="badge-number">المؤشر 16</span><i class="fa-solid fa-folder card-icon"></i></div>
+                <div class="indicator-title">المؤشر السادس عشر: تجهيزات المعامل والمختبرات العلمية والوسائل التقنية والمساندة.</div>
+                <div class="card-footer">استعراض الدليل <i class="fa-solid fa-arrow-left"></i></div>
+            </a>
+
+            <a href="17.html" class="indicator-card">
+                <div class="card-top"><span class="badge-number">المؤشر 17</span><i class="fa-solid fa-folder card-icon"></i></div>
+                <div class="indicator-title">المؤشر السابع عشر: كفاءة خدمات المكتبة المركزية ومصادر التعلم الرقمية والورقية.</div>
+                <div class="card-footer">استعراض الدليل <i class="fa-solid fa-arrow-left"></i></div>
+            </a>
+
+            <!-- المؤشر الثامن عشر المكتمل والنشط حالياً -->
+            <a href="18.html" class="indicator-card completed-active">
+                <div class="card-top"><span class="badge-number">المؤشر 18 ✨</span><i class="fa-solid fa-circle-check" style="color: var(--success-green);"></i></div>
+                <div class="indicator-title">أنظمة، وطرق فعّالة؛ للتواصل مع الطلاب خارج أوقات الدّوام الرسمي.</div>
+                <div class="card-footer" style="color: var(--success-green);">استعراض الدليل المعتمد <i class="fa-solid fa-arrow-left"></i></div>
+            </a>
+
+            <!-- المؤشرات المتبقية من 19 إلى 25 -->
+            <a href="19.html" class="indicator-card">
+                <div class="card-top"><span class="badge-number">المؤشر 19</span><i class="fa-solid fa-folder card-icon"></i></div>
+                <div class="indicator-title">المؤشر التاسع عشر: الموارد المالية والتمويل الذاتي وإدارة الميزانيات التشغيلية.</div>
+                <div class="card-footer">استعراض الدليل <i class="fa-solid fa-arrow-left"></i></div>
+            </a>
+
+            <a href="20.html" class="indicator-card">
+                <div class="card-top"><span class="badge-number">المؤشر 20</span><i class="fa-solid fa-folder card-icon"></i></div>
+                <div class="indicator-title">المؤشر العشرون: خطة وسياسات البحث العلمي والدعم المالي المخصص للمشاريع.</div>
+                <div class="card-footer">استعراض الدليل <i class="fa-solid fa-arrow-left"></i></div>
+            </a>
+
+            <a href="21.html" class="indicator-card">
+                <div class="card-top"><span class="badge-number">المؤشر 21</span><i class="fa-solid fa-folder card-icon"></i></div>
+                <div class="indicator-title">المؤشر الحادي والعشرون: براءات الاختراع، النشر العلمي، والمجلات المعتمدة بالكلية.</div>
+                <div class="card-footer">استعراض الدليل <i class="fa-solid fa-arrow-left"></i></div>
+            </a>
+
+            <a href="22.html" class="indicator-card">
+                <div class="card-top"><span class="badge-number">المؤشر 22</span><i class="fa-solid fa-folder card-icon"></i></div>
+                <div class="indicator-title">المؤشر الثاني والعشرون: برامج الدراسات العليا وآليات الإشراف والمناقشة العلمية.</div>
+                <div class="card-footer">استعراض الدليل <i class="fa-solid fa-arrow-left"></i></div>
+            </a>
+
+            <a href="23.html" class="indicator-card">
+                <div class="card-top"><span class="badge-number">المؤشر 23</span><i class="fa-solid fa-folder card-icon"></i></div>
+                <div class="indicator-title">المؤشر الثالث والعشرون: مساهمة الكلية في خدمة المجتمع والبيئة والأنشطة الخارجية.</div>
+                <div class="card-footer">استعراض الدليل <i class="fa-solid fa-arrow-left"></i></div>
+            </a>
+
+            <a href="24.html" class="indicator-card">
+                <div class="card-top"><span class="badge-number">المؤشر 24</span><i class="fa-solid fa-folder card-icon"></i></div>
+                <div class="indicator-title">المؤشر الرابع والعشرون: آليات قياس رضا الأطراف المجتمعية وأرباب العمل.</div>
+                <div class="card-footer">استعراض الدليل <i class="fa-solid fa-arrow-left"></i></div>
+            </a>
+
+            <a href="25.html" class="indicator-card">
+                <div class="card-top"><span class="badge-number">المؤشر 25</span><i class="fa-solid fa-folder card-icon"></i></div>
+                <div class="indicator-title">المؤشر الخامس والعشرون: الخطة التطويرية المستقبلية لتحديث وتجويد مخرجات الكلية.</div>
+                <div class="card-footer">استعراض الدليل <i class="fa-solid fa-arrow-left"></i></div>
+            </a>
+
+        </main>
+
+       
+    </div>
+
+</body>
+</html>

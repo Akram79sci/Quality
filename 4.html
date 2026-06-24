@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المؤشر الرابع: العناصر البشرية المؤهلة لدعم الطلاب</title>
+    <!-- استيراد خط Tajawal من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- استيراد مكتبة Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #1e3a8a; /* أزرق ملكي رسمي */
+            --secondary-color: #0f766e; /* أخضر غامق للجودة */
+            --bg-light: #f8fafc; 
+            --card-white: #ffffff;
+            --text-dark: #0f172a;
+            --text-slate: #475569;
+            --accent-soft: rgba(15, 118, 110, 0.08);
+            --summary-gradient: linear-gradient(135deg, #1e3a8a 0%, #111827 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.8;
+            padding: 3rem 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* تصميم الهيدر الرئيسي المعتمد على نص المؤشر بالكامل */
+        header {
+            background-color: var(--card-white);
+            border-right: 6px solid var(--secondary-color);
+            border-left: 1px solid #e2e8f0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-bottom: 3.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            font-weight: 800;
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        /* شبكة عرض بطاقات الكوادر البشرية */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* تصميم كروت الضوابط */
+        .step-card {
+            background-color: var(--card-white);
+            border-radius: 14px;
+            padding: 2rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .step-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 20px -5px rgba(0, 0, 0, 0.07);
+            border-color: rgba(15, 118, 110, 0.25);
+        }
+
+        /* أيقونات الكروت */
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background-color: var(--accent-soft);
+            color: var(--secondary-color);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(15, 118, 110, 0.1);
+        }
+
+        .step-card:hover .card-icon {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+        }
+
+        /* نصوص الكروت */
+        .card-text {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            font-weight: 500;
+            text-align: justify;
+        }
+
+        .highlight {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* رقم النقطة كخلفية مائية */
+        .card-num {
+            position: absolute;
+            bottom: 10px;
+            left: 20px;
+            font-size: 3rem;
+            font-weight: 900;
+            color: rgba(0, 0, 0, 0.02);
+            user-select: none;
+        }
+
+        /* كرت الخلاصة والأثر الاستراتيجي (النقطة السابعة) */
+        .summary-card {
+            background: var(--summary-gradient);
+            color: #ffffff;
+            border-radius: 16px;
+            padding: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.15);
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .summary-icon {
+            width: 65px;
+            height: 65px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #34d399; /* أخضر مبهج للنتائج */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05);
+        }
+
+        .summary-content h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: #34d399;
+        }
+
+        .summary-content p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            font-weight: 500;
+            text-align: justify;
+        }
+
+        .summary-content .sum-highlight {
+            color: #fde047; /* أصفر دافئ للكلمات المفتاحية */
+            font-weight: 700;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 5rem;
+            color: var(--text-slate);
+            font-size: 0.9rem;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 2rem;
+        }
+
+        /* شاشات الجوال */
+        @media (max-width: 768px) {
+            .services-grid { grid-template-columns: 1fr; }
+            body { padding: 1.5rem 1rem; }
+            header { padding: 1.5rem; margin-bottom: 2.5rem; }
+            header h1 { font-size: 1.25rem; }
+            .summary-card { flex-direction: column; text-align: center; padding: 2rem 1.5rem; gap: 1.2rem; }
+        }
+
+        /* ===================================================
+           تنسيقات وقواعد الطباعة الصارمة (منع بتر الصناديق)
+           =================================================== */
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+                margin: 0;
+            }
+
+            .container {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            /* إلغاء نظام الشبكة لتمكين التحكم بالفواصل */
+            .services-grid {
+                display: block !important;
+            }
+
+            header {
+                box-shadow: none !important;
+                border: 1px solid #94a3b8 !important;
+                border-right: 6px solid var(--secondary-color) !important;
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            /* الالتزام بعدم انقسام أي كرت بين ورقتين */
+            .step-card {
+                display: block !important;
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                margin-bottom: 2rem !important;
+                
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .summary-card {
+                background: #f8fafc !important;
+                color: #000000 !important;
+                border: 1px solid #cbd5e1 !important;
+                box-shadow: none !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .summary-icon {
+                color: var(--secondary-color) !important;
+                border: 1px solid #cbd5e1 !important;
+            }
+
+            .summary-content h3 {
+                color: var(--primary-color) !important;
+            }
+
+            .summary-content .sum-highlight {
+                color: var(--primary-color) !important;
+            }
+
+            /* إجبار النظام على طباعة الألوان والخلفيات بدقة */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            footer {
+                page-break-before: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- الهيدر الرئيسي بنص المؤشر بالكامل وبدون عناوين جانبية -->
+        <header>
+            <h1>المؤشر الرابع : للمؤسّسة عناصر بشرية مؤهلة لمساعدة الطلاب على إتمام إجراءاتهم.</h1>
+        </header>
+
+        <!-- شبكة الست نقاط الأولى الموضحة للمؤشر -->
+        <main class="services-grid">
+
+            <!-- كرت 1 -->
+            <div class="step-card">
+                <div class="card-num">01</div>
+                <div class="card-icon">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+                <p class="card-text">
+                    تمتلك المؤسسة <span class="highlight">عناصر بشرية مؤهلة ومدرّبة</span> لتقديم الدعم الإداري والأكاديمي للطلاب أثناء إتمام إجراءاتهم المختلفة. 
+                </p>
+            </div>
+
+            <!-- كرت 2 -->
+            <div class="step-card">
+                <div class="card-num">02</div>
+                <div class="card-icon">
+                    <i class="fa-solid fa-sitemap"></i>
+                </div>
+                <p class="card-text">
+                    يتم <span class="highlight">توزيع الموظفين على مكاتب ووحدات</span> خدمية مختصة (مثل التسجيل، القبول، شؤون الطلبة , مكاتب الدراسة والامتحانات) لضمان سرعة إنجاز المعاملات. 
+                </p>
+            </div>
+
+            <!-- كرت 3 -->
+            <div class="step-card">
+                <div class="card-num">03</div>
+                <div class="card-icon">
+                    <i class="fa-solid fa-hands-helping"></i>
+                </div>
+                <p class="card-text">
+                    يتولى الموظفون تقديم <span class="highlight">الإرشاد المباشر والتوجيه</span> للطلاب حول الخطوات والإجراءات المطلوبة لكل خدمة أو معاملة. 
+                </p>
+            </div>
+
+            <!-- كرت 4 -->
+            <div class="step-card">
+                <div class="card-num">04</div>
+                <div class="card-icon">
+                    <i class="fa-solid fa-laptop-code"></i>
+                </div>
+                <p class="card-text">
+                    يتمتع العاملون بـ <span class="highlight">مهارات تقنية متقدمة</span> في التعامل مع الأنظمة الإلكترونية الخاصة بتسجيل وتنسيب الطلاب وإنهاء إجراءاتهم بيسر وسهولة.
+                </p>
+            </div>
+
+            <!-- كرت 5 -->
+            <div class="step-card">
+                <div class="card-num">05</div>
+                <div class="card-icon">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+                <p class="card-text">
+                    توفر المؤسسة <span class="highlight">نقاط خدمة ومكاتب مساعدة (Help Desks)</span> لتسهيل وصول الطلاب للمعلومات والدعم في كل قسم. 
+                </p>
+            </div>
+
+            <!-- كرت 6 -->
+            <div class="step-card">
+                <div class="card-num">06</div>
+                <div class="card-icon">
+                    <i class="fa-solid fa-arrows-spin"></i>
+                </div>
+                <p class="card-text">
+                    يتم <span class="highlight">تدريب الكوادر بشكل دوري</span> على الإجراءات الجديدة والتحديثات في اللوائح والأنظمة لضمان جودة الأداء. 
+                </p>
+            </div>
+
+        </main>
+
+        <!-- كرت النقطة السابعة والأخيرة كخلاصة وأثر استراتيجي ممتد -->
+        <section class="summary-card">
+            <div class="summary-icon">
+                <i class="fa-solid fa-award"></i>
+            </div>
+            <div class="summary-content">
+                <h3>العائد الاستراتيجي للمؤشر</h3>
+                <p>
+                    تُسهم هذه العناصر البشرية والكوادر المؤهلة بشكل مباشر في <span class="sum-highlight">تقليل الأخطاء الإجرائية</span>، و<span class="sum-highlight">تسريع إنجاز المعاملات</span> الطلابية المختلفة، مما يضمن <span class="sum-highlight">تحسين تجربة الطالب</span> داخل المؤسسة.
+                </p>
+            </div>
+        </section>
+
+           </div>
+
+</body>
+</html>
